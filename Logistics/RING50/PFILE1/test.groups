@@ -1,0 +1,33 @@
+var0:
+  0: Atom at(p0, l00)
+  1: Atom in(p0, a0)
+  2: Atom in(p0, t0)
+  3: Atom in(p0, a1)
+  4: Atom in(p0, t1)
+  5: Atom at(p0, l10)
+  6: Atom at(p0, l01)
+  7: Atom at(p0, l11)
+var1:
+  0: Atom at(p1, l10)
+  1: Atom at(p1, l00)
+  2: Atom in(p1, t0)
+  3: Atom in(p1, a0)
+  4: Atom in(p1, t1)
+  5: Atom in(p1, a1)
+  6: Atom at(p1, l11)
+  7: Atom at(p1, l01)
+var2:
+  0: Atom at(a0, l10)
+  1: Atom at(a0, l00)
+var3:
+  0: Atom dummy-fact()
+  1: Atom dummy-goal()
+var4:
+  0: Atom at(t0, l00)
+  1: Atom at(t0, l01)
+var5:
+  0: Atom at(a1, l00)
+  1: Atom at(a1, l10)
+var6:
+  0: Atom at(t1, l11)
+  1: Atom at(t1, l10)

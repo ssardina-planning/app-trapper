@@ -1,0 +1,58 @@
+begin_groups
+9
+group
+2
+7 1 dummy-goal 0 
+7 0 dummy-fact 0 
+group
+2
+6 1 at 2 t1 l10 
+6 0 at 2 t1 l11 
+group
+11
+1 4 in 2 p1 a0 
+1 7 in 2 p1 a1 
+1 3 in 2 p1 t0 
+1 6 in 2 p1 t1 
+1 5 in 2 p1 t2 
+1 1 at 2 p1 l00 
+1 9 at 2 p1 l01 
+1 0 at 2 p1 l10 
+1 8 at 2 p1 l11 
+1 10 at 2 p1 l20 
+1 2 at 2 p1 l21 
+group
+3
+3 0 at 2 a1 l00 
+3 2 at 2 a1 l10 
+3 1 at 2 a1 l20 
+group
+2
+5 0 at 2 t0 l00 
+5 1 at 2 t0 l01 
+group
+2
+4 0 at 2 t2 l20 
+4 1 at 2 t2 l21 
+group
+1
+7 0 dummy-fact 0 
+group
+11
+0 3 in 2 p0 a0 
+0 5 in 2 p0 a1 
+0 4 in 2 p0 t0 
+0 6 in 2 p0 t1 
+0 2 in 2 p0 t2 
+0 1 at 2 p0 l00 
+0 9 at 2 p0 l01 
+0 8 at 2 p0 l10 
+0 10 at 2 p0 l11 
+0 7 at 2 p0 l20 
+0 0 at 2 p0 l21 
+group
+3
+2 2 at 2 a0 l00 
+2 0 at 2 a0 l10 
+2 1 at 2 a0 l20 
+end_groups

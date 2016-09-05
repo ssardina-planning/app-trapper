@@ -1,0 +1,43 @@
+0
+begin_metric
+1
+end_metric
+begin_variables
+1
+var3 2 -1
+end_variables
+begin_state
+0
+end_state
+begin_goal
+1
+0 1
+end_goal
+1
+begin_operator
+pref-op0 
+0
+1
+0
+0 0 1
+100
+end_operator
+0
+begin_SG
+switch 0
+check 0
+check 1
+0
+check 0
+check 0
+end_SG
+begin_DTG
+1
+1
+0
+0
+0
+end_DTG
+begin_CG
+0
+end_CG

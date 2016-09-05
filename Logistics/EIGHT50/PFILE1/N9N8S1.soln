@@ -1,0 +1,16 @@
+
+; Version LPG-td-1.0
+; Seed 1266
+; Command line: /home/ssardina/bin/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed 1266 -wcost 20 -nobestfirst -inst_with_contraddicting_objects -same_objects 
+; Problem pfile.pddl
+; Actions having STRIPS duration
+; Time 0.00
+; Search time 0.00
+; Parsing time 0.00
+; Mutex time 0.00
+; MetricValue -100.00
+
+0:   (LOAD-TRUCK P1 T0 L00) [1]
+1:   (DRIVE-TRUCK T0 L00 L01 C0) [1]
+2:   (UNLOAD-TRUCK P1 T0 L01) [1]
+3:   (PREF-OP2) [1]

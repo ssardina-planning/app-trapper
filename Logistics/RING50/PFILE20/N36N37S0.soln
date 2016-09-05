@@ -1,0 +1,31 @@
+
+; Version LPG-td-1.0
+; Seed 1272
+; Command line: /home/lukas/GoalNetworks/PP-LPG/lpg -f pfile.pddl -o domain.pddl -n 1 -seed 1272 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects 
+; Problem pfile.pddl
+; Actions having STRIPS duration
+; Time 0.00
+; Search time 0.00
+; Parsing time 0.00
+; Mutex time 0.00
+; MetricValue -0.00
+
+0:   (LOAD-AIRPLANE P3 A0 L30) [1]
+0:   (LOAD-AIRPLANE P4 A0 L30) [1]
+1:   (FLY-AIRPLANE A0 L30 L00) [1]
+2:   (UNLOAD-AIRPLANE P4 A0 L00) [1]
+3:   (FLY-AIRPLANE A0 L00 L30) [1]
+3:   (LOAD-TRUCK P4 T0 L00) [1]
+4:   (FLY-AIRPLANE A0 L30 L40) [1]
+4:   (DRIVE-TRUCK T0 L00 L01 C0) [1]
+5:   (UNLOAD-AIRPLANE P3 A0 L40) [1]
+5:   (UNLOAD-TRUCK P4 T0 L01) [1]
+5:   (LOAD-AIRPLANE P1 A0 L40) [1]
+6:   (LOAD-AIRPLANE P3 A1 L40) [1]
+6:   (FLY-AIRPLANE A0 L40 L20) [1]
+7:   (UNLOAD-AIRPLANE P3 A1 L40) [1]
+7:   (UNLOAD-AIRPLANE P1 A0 L20) [1]
+8:   (LOAD-TRUCK P3 T4 L40) [1]
+9:   (DRIVE-TRUCK T4 L40 L41 C4) [1]
+10:   (UNLOAD-TRUCK P3 T4 L41) [1]
+11:   (PREF-OP0) [1]

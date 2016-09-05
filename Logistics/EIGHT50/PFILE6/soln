@@ -1,0 +1,16 @@
+
+; Version LPG-td-1.0
+; Seed 2522
+; Command line: /home/lpg/PlanningProgram/CODE/lpg -f pfile.pddl -o domainHPlanP.pddl -n 1 -input_plan soln.tmp -seed 2522 -same_objects 
+; Problem pfile.pddl
+; Actions having STRIPS duration
+; Time 0.02
+; Search time 0.01
+; Parsing time 0.01
+; Mutex time 0.00
+; NrActions 3
+; Distance from input plan: 0 
+
+0:   (UNLOAD-TRUCK P2 T2 L21) [1]
+0:   (DRIVE-TRUCK T1 L10 L11 C1) [1]
+1:   (UNLOAD-TRUCK P0 T1 L11) [1]
