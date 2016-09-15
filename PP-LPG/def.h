@@ -40,6 +40,7 @@
 #define COMMAND_LPG_2SOL_REPLAN "/home/lukas/GoalNetworks/PP-LPG/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -input_plan %s"
 
 #define COMMAND_TRAPPER "/home/lukas/GoalNetworks/PP-LPG/trapper --domain domain.pddl --problem pfile-trap.pddl --search astar_trap --candidates a2 --goals %i --plan soln.tmp"
+#define COMMAND_NO_TRAPPER "/home/lukas/GoalNetworks/PP-LPG/trapper --domain domain.pddl --problem pfile.pddl --search astar_trap --goals %i --plan soln.tmp"
 
 #else // PROOBLEMI DI GRANDI DIMENSIONI
 

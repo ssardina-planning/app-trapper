@@ -562,11 +562,18 @@ void run_planner(int pref, char inputplan[]) {
 
 }
 
-void run_trapper(int goals){
+void run_trapper(int goals, char *planner){
     char tmp[MAX_STR_LEN];
     
     remove("endstate.txt");
-    snprintf(tmp, MAX_STR_LEN, COMMAND_TRAPPER, goals);
+    if (strcmp(planner,"trap")==0) {
+        snprintf(tmp, MAX_STR_LEN, COMMAND_TRAPPER, goals);
+    } else if (strcmp(planner,"no_trap")==0) {
+        snprintf(tmp, MAX_STR_LEN, COMMAND_NO_TRAPPER, goals);
+    } else if (strcmp(planner,"lpg")==0) {
+       snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL, 1234);
+    }
+    //printf("%s\n",tmp);
     system(tmp);
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
 	snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, 1234);
@@ -1179,8 +1186,8 @@ int main(int argc, char *argv[]) {
   char *objFilename = argv[1], *initFilename = argv[2], *predicatesFilename = argv[3], *actsFilename = argv[4], *graphFilename = argv[5], stateFilename[MAX_STR_LEN], tmp[MAX_STR_LEN];  
   FILE *fp;
 
-  if (argc != 7) {
-    printf("Incorrect command line: <Obj-FILE> <InitialState-FILE> <Act-FILE> <GRAPH-FILE>\n");
+  if (argc != 8) {
+    printf("Incorrect command line: <Obj-FILE> <InitialState-FILE> <Act-FILE> <GRAPH-FILE> ...\n");
     exit(0);
   }
 
@@ -1201,7 +1208,7 @@ for (int i=0;i<MAX_STEPS;i++){
 
   create_problem_file(&NodeVect[e->to_node], objFilename, initFilename, e->goalFilename);
 
-  run_trapper(e->numG);
+  run_trapper(e->numG,argv[7]);
 
   if (file_exists("endstate.txt") == FALSE) {
 	      printf("\nFAIL\n");
