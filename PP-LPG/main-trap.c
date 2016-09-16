@@ -565,7 +565,10 @@ void run_planner(int pref, char inputplan[]) {
 void run_trapper(int goals, char *planner){
     char tmp[MAX_STR_LEN];
     
-    remove("endstate.txt");
+    //workaround for empty plans
+    int x = system(COMMAND_VAL_EMPTYPLAN);
+    if (x==0) return;
+
     if (strcmp(planner,"trap")==0) {
         snprintf(tmp, MAX_STR_LEN, COMMAND_TRAPPER, goals);
     } else if (strcmp(planner,"no_trap")==0) {
@@ -575,6 +578,13 @@ void run_trapper(int goals, char *planner){
     }
     //printf("%s\n",tmp);
     system(tmp);
+    
+        remove("endstate.txt");
+    //validating plan
+    x = system(COMMAND_VAL_PLAN);
+    if (x!=0) return;    
+
+
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
 	snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, 1234);
 	system(tmp);

@@ -1,0 +1,42 @@
+
+; Version LPG-td-1.0
+; Seed 1234
+; Command line: /home/lukas/GoalNetworks/PP-LPG/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects 
+; Problem pfile.pddl
+; Actions having STRIPS duration
+; Time 0.01
+; Search time 0.00
+; Parsing time 0.00
+; Mutex time 0.01
+; NrActions 29
+; Distance from input plan: 0 
+
+0:   (MOVE F0-0F F1-0F DOWN) [1]
+1:   (MOVE F1-0F F1-1F RIGHT) [1]
+2:   (MOVE F1-1F F2-1F DOWN) [1]
+3:   (MOVE F2-1F F3-1F DOWN) [1]
+4:   (PUSH F3-1F F3-2F F3-3F RIGHT BOX2) [1]
+5:   (PUSH F3-2F F3-3F F3-4F RIGHT BOX2) [1]
+6:   (PUSH F3-3F F3-4F F3-5F RIGHT BOX2) [1]
+7:   (PUSH F3-4F F3-5F F3-6F RIGHT BOX2) [1]
+8:   (PUSH F3-5F F3-6F F3-7F RIGHT BOX2) [1]
+9:   (PUSH F3-6F F3-7F F3-8F RIGHT BOX2) [1]
+10:   (MOVE F3-7F F2-7F UP) [1]
+11:   (MOVE F2-7F F2-8F RIGHT) [1]
+12:   (PUSH F2-8F F3-8F F4-8F DOWN BOX2) [1]
+13:   (PUSH F3-8F F4-8F F5-8F DOWN BOX2) [1]
+14:   (PUSH F4-8F F5-8F F6-8F DOWN BOX2) [1]
+15:   (PUSH F5-8F F6-8F F7-8F DOWN BOX2) [1]
+16:   (PUSH F6-8F F7-8F F8-8F DOWN BOX2) [1]
+17:   (MOVE F7-8F F6-8F UP) [1]
+18:   (MOVE F6-8F F5-8F UP) [1]
+19:   (MOVE F5-8F F4-8F UP) [1]
+20:   (MOVE F4-8F F4-7F LEFT) [1]
+21:   (MOVE F4-7F F4-6F LEFT) [1]
+22:   (MOVE F4-6F F4-5F LEFT) [1]
+23:   (MOVE F4-5F F5-5F DOWN) [1]
+24:   (PUSH F5-5F F5-6F F5-7F RIGHT BOX0) [1]
+25:   (PUSH F5-6F F5-7F F5-8F RIGHT BOX0) [1]
+26:   (MOVE F5-7F F4-7F UP) [1]
+27:   (MOVE F4-7F F4-8F RIGHT) [1]
+28:   (PUSH F4-8F F5-8F F6-8F DOWN BOX0) [1]

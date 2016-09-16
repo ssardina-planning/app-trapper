@@ -30,7 +30,7 @@
 
 /**************** COMMAND LINES ****************/
 #ifdef __SMALL__
-#define COMMAND_LPG_1SOL "/home/lukas/GoalNetworks/PP-LPG/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
+#define COMMAND_LPG_1SOL "/home/lukas/GoalNetworks/PP-LPG/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed %d -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
 #define COMMAND_LPG_2SOL "/home/lukas/GoalNetworks/PP-LPG/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
 #define COMMAND_LAMA_1SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality -f pfile.pddl -o domain.pddl -n 1 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp ; fi"
 #define COMMAND_LAMA_2SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality -f pfile.pddl -o domain.pddl -n 2 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp; fi"
@@ -41,6 +41,9 @@
 
 #define COMMAND_TRAPPER "/home/lukas/GoalNetworks/PP-LPG/trapper --domain domain.pddl --problem pfile-trap.pddl --search astar_trap --candidates a2 --goals %i --plan soln.tmp"
 #define COMMAND_NO_TRAPPER "/home/lukas/GoalNetworks/PP-LPG/trapper --domain domain.pddl --problem pfile.pddl --search astar_trap --goals %i --plan soln.tmp"
+
+#define COMMAND_VAL_PLAN "/home/lukas/GoalNetworks/PP-LPG/validate domain.pddl pfile.pddl soln.tmp"
+#define COMMAND_VAL_EMPTYPLAN "/home/lukas/GoalNetworks/PP-LPG/validate domain.pddl pfile.pddl /home/lukas/GoalNetworks/PP-LPG/emptyplan.tmp"
 
 #else // PROOBLEMI DI GRANDI DIMENSIONI
 
