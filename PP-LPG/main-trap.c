@@ -586,6 +586,8 @@ void run_trapper(int goals, char *planner){
 
 
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
+        //workaround actions with no parameters
+        system("cat soln.tmp | sed 's/ )/)/' > soln.tmp1; mv -T soln.tmp1 soln.tmp");
 	snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, 1234);
 	system(tmp);
         //exit(5);
