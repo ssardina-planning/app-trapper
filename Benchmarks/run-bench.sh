@@ -4,7 +4,9 @@
 
 case $3 in
   "trap") run="trap";;
+  "dfs_trap") run="dfs_trap";;
   "lmcut") run="no_trap";;
+  "dfs") run="dfs_no_trap";;
   "lpg") run="lpg";;
         *) run=""; echo "No planner specified";exit 1;;
 esac

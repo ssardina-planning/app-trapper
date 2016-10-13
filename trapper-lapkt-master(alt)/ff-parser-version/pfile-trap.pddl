@@ -1,0 +1,62 @@
+(define (problem logistics-c2-s2-p1-a1)
+(:domain logistics-strips)
+(:objects a0 a1
+          c0 c1 c2
+          t0 t1 t2
+          l00 l01 l10 l11 l20 l21 
+          p0 p1 p2  p3 p4
+)
+(:init ;(dummy-fact)
+(airplane a0) 
+(airplane a1) 
+(airport l00) 
+(airport l10) 
+(airport l20) 
+(at a0 l00)
+(at a1 l20)
+(at p0 l21)
+(at p1 l21)
+(at p2 l01)
+(at p3 l21)
+(at p4 l21)
+(at t0 l01)
+(at t1 l10)
+(at t2 l21)
+(city c0) 
+(city c1) 
+(city c2) 
+(connected l00 l10) 
+(connected l00 l20) 
+(connected l10 l00) 
+(in-city l00 c0) 
+(in-city l01 c0) 
+(in-city l10 c1) 
+(in-city l11 c1) 
+(in-city l20 c2) 
+(in-city l21 c2) 
+(location l00) 
+(location l01) 
+(location l10) 
+(location l11) 
+(location l20) 
+(location l21) 
+(obj p0) 
+(obj p1) 
+(obj p2) 
+(obj p3) 
+(obj p4) 
+(truck t0) 
+(truck t1) 
+(truck t2) 
+)
+(:goal (and 
+
+;goal G2
+(at p2 l11)
+;goal G1
+(at p2 l01)
+;real goals
+
+(at p2 l11)
+
+)))

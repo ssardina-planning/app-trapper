@@ -573,8 +573,12 @@ void run_trapper(int goals, char *planner){
         snprintf(tmp, MAX_STR_LEN, COMMAND_TRAPPER, goals);
     } else if (strcmp(planner,"no_trap")==0) {
         snprintf(tmp, MAX_STR_LEN, COMMAND_NO_TRAPPER, goals);
+    } else if (strcmp(planner,"dfs_trap")==0) {
+        snprintf(tmp, MAX_STR_LEN, COMMAND_DFS_TRAPPER, goals);
+    } else if (strcmp(planner,"dfs_no_trap")==0) {
+        snprintf(tmp, MAX_STR_LEN, COMMAND_DFS_NO_TRAPPER, goals);
     } else if (strcmp(planner,"lpg")==0) {
-       snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL, 1234);
+       snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL, rand());
     }
     //printf("%s\n",tmp);
     system(tmp);

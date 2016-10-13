@@ -1,0 +1,4 @@
+1: (UNSTACK C A)
+2: (PUT-DOWN C)
+3: (UNSTACK A D)
+4: (STACK A B)

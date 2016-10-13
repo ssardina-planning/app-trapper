@@ -42,6 +42,10 @@
 #define COMMAND_TRAPPER "/home/lukas/GoalNetworks/PP-LPG/trapper --domain domain.pddl --problem pfile-trap.pddl --search astar_trap --candidates a2 --goals %i --plan soln.tmp"
 #define COMMAND_NO_TRAPPER "/home/lukas/GoalNetworks/PP-LPG/trapper --domain domain.pddl --problem pfile.pddl --search astar_trap --goals %i --plan soln.tmp"
 
+
+#define COMMAND_DFS_TRAPPER "/home/lukas/GoalNetworks/PP-LPG/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals %i --plan soln.tmp"
+#define COMMAND_DFS_NO_TRAPPER "/home/lukas/GoalNetworks/PP-LPG/trapper --domain domain.pddl --problem pfile.pddl --search dfs+_trap --goals %i --plan soln.tmp"
+
 #define COMMAND_VAL_PLAN "/home/lukas/GoalNetworks/PP-LPG/validate domain.pddl pfile.pddl soln.tmp"
 #define COMMAND_VAL_EMPTYPLAN "/home/lukas/GoalNetworks/PP-LPG/validate domain.pddl pfile.pddl /home/lukas/GoalNetworks/PP-LPG/emptyplan.tmp"
 
