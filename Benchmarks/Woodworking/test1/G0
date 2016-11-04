@@ -1,2 +1,4 @@
       (colour p0 green)
-
+   
+(colour p1 black)
+(colour p2 green)

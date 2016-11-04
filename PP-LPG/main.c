@@ -326,6 +326,7 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename) {
   while(feof(fp) == 0) {
     if (fgets(str, MAX_STR_LEN, fp) != NULL) fprintf(out, "%s", str);
   }
+  fprintf(out,"(dummy-goal)(dummy-fact)");
 
   if (n != NULL) {
     for (i = 0; i < n->numT; i++) {
@@ -345,9 +346,14 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename) {
     exit(0);
   }
 
+  fprintf(out,"(:functions (cost))");
+
   while(feof(fp) == 0) {
     if (fgets(str, MAX_STR_LEN, fp) != NULL) fprintf(out, "%s", str);
   }
+
+  fprintf(out,"(:action pref-op0\n  :precondition (and (dummy-fact))\n  :effect (and (not (dummy-fact)) (dummy-goal)))");
+
 
   if (n != NULL) { 
     /*
@@ -468,12 +474,44 @@ void run_planner(int pref, char inputplan[]) {
   if (x == 4) return; // TESTING FAILURE
 */
 
+  //workaround for empty plans
+    int x = system(COMMAND_VAL_EMPTYPLAN);
+   if (x==0){
+      FILE *out = fopen("soln.tmp", "w");
+      fclose(out);
+      if (file_exists("endstate.txt") == FALSE) {
+          system("cp init.pddl endstate.txt"); //initial situation
+      }
+      return;
+   }
+   remove("endstate.txt");
+   remove("endstate.txt.tmp");
   if (pref == FALSE) {
 #ifdef __LAMA__
     snprintf(tmp, MAX_STR_LEN, COMMAND_LAMA_1SOL, seed);
     system(tmp);
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
 	snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, seed);
+	system(tmp);
+	remove("soln.tmp");
+    }
+
+#elif __LMCUT__
+    system(COMMAND_LMCUT);
+    if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
+	//workaround actions with no parameters
+        system("cat soln.tmp | sed 's/ )/)/' > soln.tmp1; mv -T soln.tmp1 soln.tmp");
+        snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, seed);
+	system(tmp);
+        //exit(2);
+	remove("soln.tmp");
+    }
+#elif __DFS__
+    system(COMMAND_DFS);
+    if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
+	//workaround actions with no parameters
+        system("cat soln.tmp | sed 's/ )/)/' > soln.tmp1; mv -T soln.tmp1 soln.tmp");
+        snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, seed);
 	system(tmp);
 	remove("soln.tmp");
     }
@@ -493,6 +531,7 @@ void run_planner(int pref, char inputplan[]) {
 	remove("soln.tmp");
     }
 #endif
+   
   }
   else {
 #ifdef __LAMA__
@@ -1110,7 +1149,7 @@ int main(int argc, char *argv[]) {
 
       if (numFlaw == 0) {
 	printf("SUCCESS\n\n");	
-	return 0;
+	return 1;
       }
 
       f = selectFlaw();
@@ -1198,8 +1237,8 @@ int main(int argc, char *argv[]) {
 
 	  remove("soln");
 	  remove("soln.tmp");
-	  remove("endstate.txt");
-	  remove("endstate.txt.tmp");
+	  //remove("endstate.txt");
+	  //remove("endstate.txt.tmp");
 
 	  if (DEBUG1) {
 	    printf("\n\nPlanning for edge <%d,%d> with goal %s\n", x1->num, x2->num, e->goalFilename);

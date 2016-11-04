@@ -4,12 +4,16 @@
 ; Command line: /home/lukas/GoalNetworks/PP-LPG/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects 
 ; Problem pfile.pddl
 ; Actions having STRIPS duration
-; Time 0.00
-; Search time 0.00
+; Time 0.01
+; Search time 0.01
 ; Parsing time 0.00
 ; Mutex time 0.00
-; NrActions 2
+; NrActions 6
 ; Distance from input plan: 0 
 
-0:   (PICK-UP A) [1]
-1:   (STACK A B) [1]
+0:   (UNSTACK C A) [1]
+1:   (PUT-DOWN C) [1]
+2:   (UNSTACK A D) [1]
+3:   (STACK A B) [1]
+4:   (PICK-UP C) [1]
+5:   (STACK C D) [1]

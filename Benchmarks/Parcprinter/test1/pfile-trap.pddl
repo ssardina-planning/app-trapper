@@ -37,7 +37,7 @@
 (available htmoverblack-rsrc)
 (available htmovercolor-rsrc)
 (available up-rsrc)
-(hasimage sheet1 front image-1)
+(hasimage sheet1 front image-4)
 (hasimage sheet2 front image-2)
 (imagecolor image-1 color) 
 (imagecolor image-10 black) 
@@ -122,11 +122,11 @@
 (sheetsize sheet9 letter) 
 (sideup sheet1 front)
 (sideup sheet2 front)
-(stackedin sheet1 finisher1_tray)
+(stackedin sheet1 finisher2_tray)
 (stackedin sheet2 finisher1_tray)
 )
 (:goal (and 
-;real goals
+;goal G2
 		(Hasimage sheet3 Front image-3)
 		(Notprintedwith sheet3 Front Black)
 		(Notprintedwith sheet3 Back Black)
@@ -134,4 +134,11 @@
 (Sideup sheet3 Front)
 		(Stackedin sheet3 Finisher1_Tray)
 		
+;real goals
+(Hasimage sheet1 Front image-1)
+		(Notprintedwith sheet1 Front Black)
+		(Notprintedwith sheet1 Back Black)
+		(Notprintedwith sheet1 Back Color)
+(Sideup sheet1 Front)
+(Stackedin sheet1 Finisher1_Tray)
 )))

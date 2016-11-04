@@ -1,3 +1,4 @@
 (available p3)
-      (wood p3 oak)
+    (available p4)
+      (colour p4 black)
       (treatment p3 glazed)

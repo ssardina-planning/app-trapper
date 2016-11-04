@@ -12,8 +12,8 @@
                 (connected ?loc1 ?loc2)
         (dummy-goal)
         (dummy-fact)
-)
-;(:functions (cost))
+(dummy-goal)(dummy-fact))
+(:functions (cost));(:functions (cost))
  
   ; (:types )		; default object
 
@@ -90,4 +90,6 @@
 ;  :precondition (and (dummy-fact))
 ;  :effect (and (not (dummy-fact)) (dummy-goal)))
 
-)
+(:action pref-op0
+  :precondition (and (dummy-fact))
+  :effect (and (not (dummy-fact)) (dummy-goal))))

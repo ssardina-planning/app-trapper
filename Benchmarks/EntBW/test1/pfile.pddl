@@ -2,14 +2,14 @@
 (:objects a b c d - block)
 (:INIT 
 (clear a)
-(clear b)
+(clear c)
 (handempty )
-(on b c)
+(on a b)
 (on c d)
-(ontable a)
+(ontable b)
 (ontable d)
 )
 (:goal (and
-(on a b)
+(on b c)
 ))
 )

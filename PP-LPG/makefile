@@ -7,7 +7,9 @@
 #NAME = pp-lama
 #NAME = pp-lama-large
 #NAME = pp-lama-debug
-NAME = pp-lpg
+#NAME = pp-lpg
+#NAME = pp-lmcut
+NAME = pp-dfs
 #NAME=pp-hplanp
 #NAME=pp-nopref-hplanp
 
@@ -17,7 +19,9 @@ OBJECTS = $(SOURCES:.c=.o)
 ###ottimizzazioni in compilazione###
 #CC_OPTS  = -c -O3 -D__LPG__ -fstrength-reduce -ffast-math -D__SMALL__ 
 #CC_OPTS  = -c -O3 -D__LPG__ -fstrength-reduce -ffast-math -D__NOPREF__ -D__SMALL__ 
-CC_OPTS  = -c -g -D__LPG__ -D__SMALL__ # LPG CON PREFERENZE
+#CC_OPTS  = -c -g -D__LPG__ -D__SMALL__ # LPG CON PREFERENZE
+#CC_OPTS  = -c -g -D__LMCUT__ -D__LPG__ -D__SMALL__ # LPG CON PREFERENZE
+CC_OPTS  = -c -g -D__DFS__ -D__LPG__ -D__SMALL__ # LPG CON PREFERENZE
 #CC_OPTS  = -c -g  -D__LPG__ -D__NOPREF__ -D__SMALL__ # LPG SENZA PREFERENZE
 #CC_OPTS  = -c -g  -D__LPG__ # LPG CON PREFERENZE per problemi di grandi dimensioni 
 #CC_OPTS  = -c -g  -D__LPG__ -D__ADAPT__ # LPG CON PREFERENZE E ADATTAMENTO

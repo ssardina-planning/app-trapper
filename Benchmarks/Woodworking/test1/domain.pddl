@@ -33,12 +33,6 @@
             (grind-treatment-change ?old ?new - treatmentstatus)
             (is-smooth ?surface - surface)
 )
- (:functions (total-cost) ;- number
-            (spray-varnish-cost ?obj - part) ;- number
-            (glaze-cost ?obj - part) ;- number
-            (grind-cost ?obj - part) ;- number
-            (plane-cost ?obj - part) ;- number)
-)
 
   (:action do-immersion-varnish
     :parameters (?x - part ?m - immersion-varnisher 
