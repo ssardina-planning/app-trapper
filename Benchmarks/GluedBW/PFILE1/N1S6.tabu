@@ -1,0 +1,8 @@
+(clear b3)
+(clear b4)
+(handempty )
+(on b4 b5)
+(ontable b2)
+(ontable b3)
+(stai_on b1 b2)
+(stai_on b5 b1)

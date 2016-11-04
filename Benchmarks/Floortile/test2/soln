@@ -1,0 +1,28 @@
+
+; Version LPG-td-1.0
+; Seed 1234
+; Command line: /home/lukas/GoalNetworks/PP-LPG/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects 
+; Problem pfile.pddl
+; Actions having STRIPS duration
+; Time 0.01
+; Search time 0.00
+; Parsing time 0.01
+; Mutex time 0.00
+; NrActions 15
+; Distance from input plan: 0 
+
+0:   (CHANGE-COLOR ROBOT2 WHITE BLACK) [1]
+0:   (UP ROBOT2 TILE_4-5 TILE_5-5) [1]
+1:   (PAINT-DOWN ROBOT2 TILE_4-5 TILE_5-5 BLACK) [1]
+2:   (CHANGE-COLOR ROBOT2 BLACK WHITE) [1]
+2:   (LEFT ROBOT2 TILE_5-5 TILE_5-4) [1]
+3:   (PAINT-DOWN ROBOT2 TILE_4-4 TILE_5-4 WHITE) [1]
+4:   (CHANGE-COLOR ROBOT2 WHITE BLACK) [1]
+4:   (LEFT ROBOT2 TILE_5-4 TILE_5-3) [1]
+5:   (PAINT-DOWN ROBOT2 TILE_4-3 TILE_5-3 BLACK) [1]
+6:   (CHANGE-COLOR ROBOT2 BLACK WHITE) [1]
+6:   (LEFT ROBOT2 TILE_5-3 TILE_5-2) [1]
+7:   (PAINT-DOWN ROBOT2 TILE_4-2 TILE_5-2 WHITE) [1]
+8:   (CHANGE-COLOR ROBOT2 WHITE BLACK) [1]
+8:   (LEFT ROBOT2 TILE_5-2 TILE_5-1) [1]
+9:   (PAINT-DOWN ROBOT2 TILE_4-1 TILE_5-1 BLACK) [1]

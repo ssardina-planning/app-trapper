@@ -1,0 +1,7 @@
+(handempty)
+ (stai_on b1 b2)
+ (ontable b2)
+ (stai_on b3 b5)
+ (stai_on b4 b3)
+ (stai_on b5 b1)
+ (clear b4)

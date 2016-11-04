@@ -1,0 +1,8 @@
+
+ (on b2 b4)
+ (on b3 b2)
+ (on b5 b10)
+ (on b7 b8)
+ (on b8 b9)
+ (on b9 b3)
+ (on b10 b6)

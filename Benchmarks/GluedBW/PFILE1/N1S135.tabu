@@ -1,0 +1,7 @@
+(clear b3)
+(clear b4)
+(holding b2)
+(on b3 b1)
+(on b4 b5)
+(ontable b1)
+(ontable b5)

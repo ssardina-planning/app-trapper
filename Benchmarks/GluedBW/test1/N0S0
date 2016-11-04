@@ -1,0 +1,7 @@
+(clear b)
+(clear c)
+(handempty )
+(ontable b)
+(ontable d)
+(stai_on a d)
+(stai_on c a)
