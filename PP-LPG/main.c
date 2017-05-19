@@ -24,6 +24,8 @@ int tot_num_step;
 int selectPlanToAdapt = BEST;
 //int selectPlanToAdapt = RANDOM;
 
+int globGoals;
+
 void print_graph();
 void print_flaws();
 
@@ -126,9 +128,14 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
   FILE *out = fopen("pfile.pddl3", "w");
 #else
   FILE *out = fopen("pfile.pddl", "w");
+#ifdef TRAPS
+  FILE *out_traps = fopen("pfile-trap.pddl", "w");
+#endif
 #endif
   char str[MAX_STR_LEN];
   int i, j;
+
+  globGoals=0;
   
   if (fp == NULL) {
     printf("File %s cannot be opened!\n", objFilename);
@@ -140,7 +147,12 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
   }
 
   while(feof(fp) == 0) {
-    if (fgets(str, MAX_STR_LEN, fp) != NULL) fprintf(out, "%s", str);
+    if (fgets(str, MAX_STR_LEN, fp) != NULL){
+       fprintf(out, "%s", str);
+    #ifdef TRAPS
+       fprintf(out_traps, "%s", str);
+    #endif
+   }
   }
   
   fclose(fp);
@@ -149,6 +161,9 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
   fprintf(out, "(:INIT (= (total-cost) 0)\n\t(dummy-fact)\n");
 #elif __LPG__
   fprintf(out, "(:INIT (= (cost) 0)\n\t(dummy-fact)\n");
+  #ifdef TRAPS
+   fprintf(out_traps, "(:INIT (= (cost) 0)\n\t(dummy-fact)\n");
+  #endif
 #elif __HPLANP__
   fprintf(out, "(:init (dummy-fact)\n");
 #endif
@@ -161,13 +176,21 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
   }
 
   while(feof(fp) == 0) {
-    if (fgets(str, MAX_STR_LEN, fp) != NULL) fprintf(out, "%s", str);
+    if (fgets(str, MAX_STR_LEN, fp) != NULL) {
+      fprintf(out, "%s", str);
+    #ifdef TRAPS
+      fprintf(out_traps, "%s", str);
+    #endif
+    }
   }
 
   /* ALEX: STAMPARE ANCHE IL FILE DEGLI INVARIANTI */
-
+  
   fprintf(out, ")\n");
 
+ #ifdef TRAPS
+  fprintf(out_traps, ")\n");
+ #endif
   fclose(fp);
 
   if (goalFilename == NULL) {
@@ -191,10 +214,44 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
       exit(0);
     }
     
-    fprintf(out, "(:goal (and\n(dummy-goal)\n");
+    fprintf(out, "(:goal (and\n");
 
+   #ifdef TRAPS
+    fprintf(out_traps, "(:goal (and\n");
+    if (n!=NULL){
+        //the trap part
+        FILE *fpt;
+        for (i = n->futuregoalcount-1; i >=0; i--) {
+             fpt = fopen(n->future_goals[i], "r");
+
+             if (fpt == NULL) {
+                printf("233File %s cannot be opened!\n", n->future_goals[i]);
+                exit(0);
+               }
+           fprintf(out_traps, ";goal %s\n",n->future_goals[i]); 
+           while(feof(fpt) == 0) {
+               if (fgets(str, MAX_STR_LEN, fpt) != NULL) {fprintf(out_traps, "%s", str);}
+              }
+              
+           fclose(fpt);
+        }   
+    }
+      
+   // fprintf(out, "(:goal (and\n");
+    fprintf(out_traps, ";real goals\n");
+     fprintf(out_traps, "(dummy-goal)\n");
+  // globGoals+=n->numG;
+   #endif
+    
+    fprintf(out, "(dummy-goal)\n");
+  
     while(feof(fp) == 0) {
-      if (fgets(str, MAX_STR_LEN, fp) != NULL) fprintf(out, "%s", str);
+      if (fgets(str, MAX_STR_LEN, fp) != NULL){
+         fprintf(out, "%s", str);
+       #ifdef TRAPS
+         fprintf(out_traps, "%s", str);
+       #endif
+      }
     }
 
     fclose(fp);
@@ -202,12 +259,20 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
     if (n != NULL) {
 	for (i = 0; i < n->numT; i++) {
 	    fprintf(out, "(dummy-tabustate%d)\n", i);
+        #ifdef TRAPS    
+            fprintf(out_traps, "(dummy-tabustate%d)\n", i);
+        #endif
 	}
     }
+    globGoals+=n->numT+1;
 #ifdef __LAMA__
     fprintf(out, "))\n(:metric minimize (total-cost))\n)\n");
 #elif __LPG__
     fprintf(out, "))\n(:metric maximize (cost))\n)\n");
+  #ifdef TRAPS
+        fprintf(out_traps, "))\n(:metric maximize (cost))\n)\n");
+  #endif
+
 #endif
   }
 #else
@@ -305,7 +370,9 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
   }
 #endif
   fclose(out);
-
+#ifdef TRAPS
+  fclose(out_traps);
+#endif
 }
 
 
@@ -475,6 +542,7 @@ void run_planner(int pref, char inputplan[]) {
 */
 
   //workaround for empty plans
+    printf("Trying empty plan..\n");
     int x = system(COMMAND_VAL_EMPTYPLAN);
    if (x==0){
       FILE *out = fopen("soln.tmp", "w");
@@ -497,20 +565,32 @@ void run_planner(int pref, char inputplan[]) {
     }
 
 #elif __LMCUT__
-    system(COMMAND_LMCUT);
+    #ifdef TRAPS
+      snprintf(tmp, MAX_STR_LEN, COMMAND_TRAPPER, globGoals);
+      system(tmp);
+    #else
+      system(COMMAND_LMCUT);
+    #endif
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
 	//workaround actions with no parameters
-        system("cat soln.tmp | sed 's/ )/)/' > soln.tmp1; mv -T soln.tmp1 soln.tmp");
+//        system("cat soln.tmp | sed 's/ )/)/g' > soln.tmp1; mv -T soln.tmp1 soln.tmp; cat soln.tmp");
+        system("cat soln.tmp | sed 's/ )/)/g' > soln.tmp1; grep -i -v -E 'pref-op|tabu-op' soln.tmp1 > soln.tmp; grep -i -E 'pref-op|tabu-op' soln.tmp1 >> soln.tmp;rm soln.tmp1; cat soln.tmp");
         snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, seed);
 	system(tmp);
         //exit(2);
 	remove("soln.tmp");
     }
 #elif __DFS__
+   #ifdef TRAPS
+      snprintf(tmp, MAX_STR_LEN, COMMAND_DFS_TRAPPER, globGoals);
+      system(tmp);
+    #else
     system(COMMAND_DFS);
+    #endif
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
 	//workaround actions with no parameters
-        system("cat soln.tmp | sed 's/ )/)/' > soln.tmp1; mv -T soln.tmp1 soln.tmp");
+//        system("cat soln.tmp | sed 's/ )/)/g' > soln.tmp1; mv -T soln.tmp1 soln.tmp");
+ system("cat soln.tmp | sed 's/ )/)/g' > soln.tmp1; grep -i -v -E 'pref-op|tabu-op' soln.tmp1 > soln.tmp; grep -i -E 'pref-op|tabu-op' soln.tmp1 >> soln.tmp;rm soln.tmp1; cat soln.tmp");
         snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, seed);
 	system(tmp);
 	remove("soln.tmp");
@@ -591,10 +671,26 @@ void define_initial_state(char **argv) {
   NodeVect[0].count = 1;
 }
 
+#ifdef TRAPS
+void getFutureGoalsR(Node *n,int visited[], char* fgoals, int *fgoalscount){
+  if (visited[n->num]==1) return; //node has aready been visited
+  visited[n->num]=1;
+  for (int e=0;e<n->numE;e++){ //for each output edge
+      // printf("Node %i goal: %s future_goalscount: %i\n",n->num,n->E[e].goalFilename,*fgoalscount);
+       strncpy(fgoals+(*fgoalscount)*MAX_STR_LEN, n->E[e].goalFilename, MAX_STR_LEN);
+       (*fgoalscount)++;
+       getFutureGoalsR(&NodeVect[n->E[e].to_node],visited,fgoals,fgoalscount);
+  }
+
+}
+#endif
+
 int create_graph(char *argv[]) {
   
   int to, from, numnode = 0, i;
   char goal[MAX_STR_LEN];
+    char st[MAX_STR_LEN];
+  char *str = st;
 
   FILE *fp = fopen(argv[5], "r");
 
@@ -633,10 +729,35 @@ int create_graph(char *argv[]) {
 	exit(1);
       }
 
-      NodeVect[from].E[NodeVect[from].numE].to_node = to;
+       NodeVect[from].E[NodeVect[from].numE].to_node = to;
       strncpy(NodeVect[from].E[NodeVect[from].numE++].goalFilename, goal, MAX_STR_LEN);
+  #ifdef TRAPS    
+      //determining how many goal atoms in the goal file
+      FILE *fg = fopen(goal,"r");
+      while (feof(fg) == 0) {
+         if (fgets(str, MAX_STR_LEN, fg) != NULL){
+            str=strchr(str,'(');
+            while (str!=NULL)
+            {
+                NodeVect[from].E[NodeVect[from].numE-1].numG++;
+                str=strchr(str+1,'(');
+            }
+            str = st;
+         }
+      }
+      fclose(fg);
+  #endif
     }
   }
+
+#ifdef TRAPS
+  int visitednodes[numnode];
+  for (int i=0; i<numnode; i++){
+     memset(visitednodes,0,numnode*sizeof(int));
+     //visitednodes[i]=1;
+     getFutureGoalsR(&NodeVect[i],&visitednodes,NodeVect[i].future_goals,&NodeVect[i].futuregoalcount);
+  }
+#endif
 
   define_initial_state(argv);
 
@@ -1220,7 +1341,9 @@ int main(int argc, char *argv[]) {
 
 	    snprintf(stateFilename, MAX_STR_LEN, "N%dS%d", x1->num, flawState);
 	    create_problem_file(x2, objFilename, stateFilename, e->goalFilename);
-
+        #ifdef TRAPS    
+           globGoals+=e->numG;
+        #endif
 	  /* Creazione del file di dominio */
 #ifdef __NOPREF__
 	  pref_flag = FALSE;
