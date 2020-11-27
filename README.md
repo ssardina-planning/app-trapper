@@ -10,12 +10,12 @@ To compile, get into `src/`, update the paths in `def.h` if needed, and then run
 gcc main-trap.c -o pp-traps
 ```
 
-To run the tool, first make an empty-plan file in the problem folder as it is used is hard-coded in the solver:
+To run the tool, first set-it up:
 
-```bash
-touch emptyplan.tmp
-```
-
+* Tools `validate` and `trapper` need to be in the path. Both binaries are under `tools/`.
+* Planner `lpg` must be in the path.
+* In the problem to solve, there must be an empty file called `emptyplan.tmp` (its used is hard-coded in the solver). Just create one doing:  `touch emptyplan.tmp`.
+  
 Then run:
 
 ```bash
@@ -28,8 +28,7 @@ where `<planner_type>` could be:
 * `lmcut`: LM-cut without trapper.
 * `lpg`: LPG without trapper
 
- `no_trap`, `dfs_trap`, `dfs_no_trap`,
-
+Other options (?): `no_trap`, `dfs_trap`, `dfs_no_trap`,
 
 For the `example/` folder (and after compiling `pp-traps`):
 
