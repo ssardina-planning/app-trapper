@@ -52,7 +52,7 @@
 #define COMMAND_DFS_NO_TRAPPER "trapper --domain domain.pddl --problem pfile.pddl --search dfs+_trap --goals %i --plan soln.tmp"
 
 #define COMMAND_VAL_PLAN "validate domain.pddl pfile.pddl soln.tmp"
-#define COMMAND_VAL_EMPTYPLAN "validate domain.pddl pfile.pddl /home/ssardina/git/soft/planning/agtplanprog.git/PP-trapper/src/emptyplan.tmp"
+#define COMMAND_VAL_EMPTYPLAN "validate domain.pddl pfile.pddl emptyplan.tmp"
 
 #else // PROOBLEMI DI GRANDI DIMENSIONI
 

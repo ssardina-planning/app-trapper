@@ -1,4 +1,4 @@
-## TPP-LPG: PP-LPG with Traps
+## PP-TRAPPER: Agent Planning Programs via Trap Reasoning
 
 This is the PP-LPG solver for APP adapted to include dead-end (i.e., traps) reasoning:
 

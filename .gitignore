@@ -132,3 +132,7 @@ jackagt.jar
 
 .dropbox
 *.backup
+*.soln
+*N???
+src/pp-traps
+src/pp-lpg
