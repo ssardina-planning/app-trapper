@@ -7,9 +7,9 @@
 #NAME = pp-lama
 #NAME = pp-lama-large
 #NAME = pp-lama-debug
-#NAME = pp-lpg
+NAME = pp-lpg
 #NAME = pp-lmcut
-NAME = pp-dfs
+# NAME = pp-dfs
 #NAME=pp-hplanp
 #NAME=pp-nopref-hplanp
 
