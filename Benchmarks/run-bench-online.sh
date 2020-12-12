@@ -3,10 +3,10 @@
 # $1 - dir; $2 - runs; $3 - planner
 
 case $3 in
-  "trap") run="trap";;
+  "lmcut_trap") run="lmcut_trap";;
   "dfs_trap") run="dfs_trap";;
-  "lmcut") run="no_trap";;
-  "dfs") run="dfs_no_trap";;
+  "lmcut_no_trap") run="lmcut_no_trap";;
+  "dfs_no_trap") run="dfs_no_trap";;
   "lpg") run="lpg";;
         *) run=""; echo "No planner specified";exit 1;;
 esac
@@ -23,14 +23,16 @@ for (( i=1; i<=$2; i++ ))
 do
 
 cd $d
-../../../PP-LPG/pp-traps obj.pddl init.pddl predicates.pddl acts.pddl graph.txt $i $run
-
+touch emptyplan.tmp
+../../../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt $i $run
 if [ $? -eq 1 ]
 then
 succ=`expr $succ + 1`
 else
 fail=`expr $fail + 1`
 fi
+
+rm emptyplan.tmp
 
 cd ../..
 

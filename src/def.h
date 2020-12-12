@@ -30,8 +30,8 @@
 
 /**************** COMMAND LINES ****************/
 #ifdef __SMALL__
-#define COMMAND_LPG_1SOL "lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed %d -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects"          // -inst_with_contraddicting_objects PER BARMAN
-#define COMMAND_LPG_2SOL "lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
+#define COMMAND_LPG_1SOL "%s/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed %d -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects"          // -inst_with_contraddicting_objects PER BARMAN
+#define COMMAND_LPG_2SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
 
 #define COMMAND_LAMA_1SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality -f pfile.pddl -o domain.pddl -n 1 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp ; fi"
 #define COMMAND_LAMA_2SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality -f pfile.pddl -o domain.pddl -n 2 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp; fi"
@@ -39,37 +39,37 @@
 #define COMMAND_HPLANP_1SOL "/home/lpg/CODE/tlplan/run 1 $(pwd)"
 #define COMMAND_HPLANP_2SOL "/home/lpg/CODE/tlplan/run 2 $(pwd)"
 
-#define COMMAND_LPG_1SOL_REPLAN "lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 60 -input_plan %s"
-#define COMMAND_LPG_2SOL_REPLAN "lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -input_plan %s"
+#define COMMAND_LPG_1SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 60 -input_plan %s"
+#define COMMAND_LPG_2SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -input_plan %s"
 
-#define COMMAND_LMCUT "trapper --domain domain.pddl --problem pfile.pddl --search astar_trap --plan soln.tmp"
-#define COMMAND_DFS "trapper --domain domain.pddl --problem pfile.pddl --search dfs+_trap --plan soln.tmp"
+#define COMMAND_LMCUT "%s/trapper --domain domain.pddl --problem pfile.pddl --search astar_trap --plan soln.tmp"
+#define COMMAND_DFS "%s/trapper --domain domain.pddl --problem pfile.pddl --search dfs+_trap --plan soln.tmp"
 
-#define COMMAND_TRAPPER "trapper --domain domain.pddl --problem pfile-trap.pddl --search astar_trap --candidates a2 --goals %i --plan soln.tmp"
-#define COMMAND_NO_TRAPPER "trapper --domain domain.pddl --problem pfile.pddl --search astar_trap --goals %i --plan soln.tmp"
+#define COMMAND_TRAPPER "%s/trapper --domain domain.pddl --problem pfile-trap.pddl --search astar_trap --candidates a2 --goals %i --plan soln.tmp"
+#define COMMAND_NO_TRAPPER "%s/trapper --domain domain.pddl --problem pfile.pddl --search astar_trap --goals %i --plan soln.tmp"
 
-#define COMMAND_DFS_TRAPPER "trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals %i --plan soln.tmp"
-#define COMMAND_DFS_NO_TRAPPER "trapper --domain domain.pddl --problem pfile.pddl --search dfs+_trap --goals %i --plan soln.tmp"
+#define COMMAND_DFS_TRAPPER "%s/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals %i --plan soln.tmp"
+#define COMMAND_DFS_NO_TRAPPER "%s/trapper --domain domain.pddl --problem pfile.pddl --search dfs+_trap --goals %i --plan soln.tmp"
 
-#define COMMAND_VAL_PLAN "validate domain.pddl pfile.pddl soln.tmp"
-#define COMMAND_VAL_EMPTYPLAN "validate domain.pddl pfile.pddl emptyplan.tmp"
+#define COMMAND_VAL_PLAN "%s/validate domain.pddl pfile.pddl soln.tmp"
+#define COMMAND_VAL_EMPTYPLAN "%s/validate domain.pddl pfile.pddl emptyplan.tmp"
 
 #else // PROOBLEMI DI GRANDI DIMENSIONI
 
-#define COMMAND_LPG_1SOL "lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -numtry 1500 -lowmemory"
-#define COMMAND_LPG_2SOL "lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -numtry 1500 -lowmemory"
+#define COMMAND_LPG_1SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -numtry 1500 -lowmemory"
+#define COMMAND_LPG_2SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -numtry 1500 -lowmemory"
 #define COMMAND_LAMA_1SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality-large -f pfile.pddl -o domain.pddl -n 1 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp ; fi"
 #define COMMAND_LAMA_2SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality-large -f pfile.pddl -o domain.pddl -n 2 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp; fi"
-#define COMMAND_LPG_1SOL_REPLAN "lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -input_plan %s -numtry 1500 -lowmemory"
-#define COMMAND_LPG_2SOL_REPLAN "lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -input_plan %s -numtry 1500 -lowmemory"
+#define COMMAND_LPG_1SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -input_plan %s -numtry 1500 -lowmemory"
+#define COMMAND_LPG_2SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -input_plan %s -numtry 1500 -lowmemory"
 #endif
 
 /*
 #define COMMAND_RELAXED "/home/lukas/Planners/lpg -f pfile.pddl -o domainRelaxed.pddl -n 1 -seed 1234 -noise 0; mv soln pfile.pddl.soln"
 */
-#define COMMAND_RELAXED "ff -f pfile.pddl -o domainRelaxed.pddl"
+#define COMMAND_RELAXED "%s/ff -f pfile.pddl -o domainRelaxed.pddl"
 
-#define COMMAND_LPG_INPUTSOL "lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed %d -same_objects"
+#define COMMAND_LPG_INPUTSOL "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed %d -same_objects"
 #define COMMAND_LPG_INPUTSOL_FROM_HPLANP "lpg -f pfile.pddl -o domainHPlanP.pddl -n 1 -input_plan soln.tmp -seed %d -same_objects"
 
 /*********************************************/

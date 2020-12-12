@@ -10,8 +10,8 @@
 (stai_on ?x - block ?y - block)
 ;(stag_on ?x - block ?y - block)
 
-(dummy-goal)(dummy-fact))
-(:functions (cost))(:action pick-up
+)
+(:action pick-up
 :parameters ( ?x - block)
 :precondition (and (clear ?x)(ontable ?x)(handempty))
 :effect (and (not (ontable ?x))(not (clear ?x))(not (handempty))(holding ?x))

@@ -652,37 +652,38 @@ void run_trapper(int goals, char *planner)
 
   // Workaround for empty plans
   // SS: I think this validates an empty plan against domain.pddl pfile.pddd. If the empty plan gets the goal, then done
-  int x = system(COMMAND_VAL_EMPTYPLAN);
+  snprintf(tmp, MAX_STR_LEN,COMMAND_VAL_EMPTYPLAN, __TOOLDIR__);
+  int x = system(tmp);
   if (x == 0)
     return;
 
-  if (strcmp(planner, "trap") == 0)
+  if (strcmp(planner, "lmcut_trap") == 0)
   {
-    snprintf(tmp, MAX_STR_LEN, COMMAND_TRAPPER, goals);
+    snprintf(tmp, MAX_STR_LEN, COMMAND_TRAPPER, __TOOLDIR__, goals);
   }
-  else if (strcmp(planner, "no_trap") == 0)
+  else if (strcmp(planner, "lmcut_no_trap") == 0)
   {
-    snprintf(tmp, MAX_STR_LEN, COMMAND_NO_TRAPPER, goals);
+    snprintf(tmp, MAX_STR_LEN, COMMAND_NO_TRAPPER, __TOOLDIR__, goals);
   }
   else if (strcmp(planner, "dfs_trap") == 0)
   {
-    snprintf(tmp, MAX_STR_LEN, COMMAND_DFS_TRAPPER, goals);
+    snprintf(tmp, MAX_STR_LEN, COMMAND_DFS_TRAPPER, __TOOLDIR__, goals);
   }
   else if (strcmp(planner, "dfs_no_trap") == 0)
   {
-    snprintf(tmp, MAX_STR_LEN, COMMAND_DFS_NO_TRAPPER, goals);
+    snprintf(tmp, MAX_STR_LEN, COMMAND_DFS_NO_TRAPPER, __TOOLDIR__, goals);
   }
   else if (strcmp(planner, "lpg") == 0)
   {
-    snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL, rand());
+    snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL, __TOOLDIR__, rand());
   }
   printf("Running trapper as follows: %s\n", tmp);
   system(tmp);
 
   remove("endstate.txt");
   //validating plan
-  printf(COMMAND_VAL_PLAN);
-  x = system(COMMAND_VAL_PLAN);
+  snprintf(tmp, MAX_STR_LEN,COMMAND_VAL_PLAN, __TOOLDIR__);
+  x = system(tmp);
   if (x != 0)
     return;
 
@@ -690,7 +691,7 @@ void run_trapper(int goals, char *planner)
   { /* Per creazione endstate.txt */
     //workaround actions with no parameters
     system("cat soln.tmp | sed 's/ )/)/' > soln.tmp1; mv -T soln.tmp1 soln.tmp");
-    snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, 1234);
+    snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, __TOOLDIR__, 1234);
     system(tmp);
     //exit(5);
     remove("soln.tmp");
@@ -1393,7 +1394,7 @@ int main(int argc, char *argv[])
   // We need
   if (argc != 8)
   {
-    printf("Incorrect command line: <Obj-FILE> <InitialState-FILE> <Act-FILE> <GRAPH-FILE> ...\n");
+    printf("Incorrect command line: <Obj-FILE> <InitialState-FILE> <predicate-file> <Act-FILE> <GRAPH-FILE> <seed> <planner_type>\n");
     exit(0);
   }
 
@@ -1503,7 +1504,7 @@ int main(int argc, char *argv[])
                 snprintf(stateFilename, MAX_STR_LEN, "N%dS%d", x1->num, flawState);
                 snprintf(goalFilename, MAX_STR_LEN, "N%dS%d", x1->num, e->P[k].state); // goal states are states of the current node with a plan
                 create_problem_file(NULL, objFilename, stateFilename, goalFilename);
-                snprintf(tmp, MAX_STR_LEN, COMMAND_RELAXED);
+                snprintf(tmp, MAX_STR_LEN, COMMAND_RELAXED, __TOOLDIR__);
                 system(tmp);
                 numacts = countNumActs("pfile.pddl.soln");
                 remove("pfile.pddl.soln");
