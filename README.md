@@ -6,12 +6,14 @@ This is the PP-LPG solver for APP adapted to include dead-end (i.e., traps) reas
 
 To compile, get into `src/`, update the paths in `def.h` if needed, and then run:
 
-```make online
+```bash
+make online
 ```
 
 or 
 
-```make offline
+```bash
+make offline
 ```
 
 for the online or offline version of the tool, respectively.
