@@ -11,7 +11,7 @@ case $3 in
         *) run=""; echo "No planner specified";exit 1;;
 esac
 
-echo "pfile;runs;succ;fail" > $1-$3.csv
+echo "pfile;runs;succ;fail" > $1-online-$3.csv
 
 for d in `ls $1/*/ -d`
 do
@@ -38,7 +38,7 @@ cd ../..
 
 done
 
-echo "$d;$2;$succ;$fail" >> $1-$3.csv
+echo "$d;$2;$succ;$fail" >> $1-online-$3.csv
 
 done
 

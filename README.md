@@ -33,20 +33,19 @@ pp-online <obj_file> <init_file> <predicate_file> <action_file> <graph_file> <se
 or
 
 ```bash
-pp-offline <obj_file> <init_file> <predicate_file> <action_file> <graph_file> <seed> <planner_type>
+pp-<planner_type> <obj_file> <init_file> <predicate_file> <action_file> <graph_file> <seed> 
 ```
 
 where `<planner_type>` could be:
 
 * `lmcut_trap`: trapper with LM-cut.
 * `lmcut_no_trap`: LM-cut without trapper.
-* `lmcut_trap`: trapper with DFS+.
-* `lmcut_no_trap`: DFS+ without trapper.
+* `dfs_trap`: trapper with DFS+.
+* `dfs_no_trap`: DFS+ without trapper.
 * `lpg`: LPG without trapper
 
-Other options (?): `no_trap`, `dfs_trap`, `dfs_no_trap`,
 
-For the `example/` folder (and after compiling `pp-traps`):
+For the `example/` folder (and after compiling `pp-` binaries):
 
 ```bash
 ../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 lpg
@@ -54,7 +53,7 @@ For the `example/` folder (and after compiling `pp-traps`):
 or
 
 ```bash
-../src/pp-offline obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 lpg
+../src/pp-lpg obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 
 ```
 
 

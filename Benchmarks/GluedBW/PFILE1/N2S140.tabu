@@ -1,7 +1,0 @@
-(clear b3)
-(handempty )
-(on b3 b4)
-(on b4 b5)
-(on b5 b1)
-(ontable b2)
-(stai_on b1 b2)

@@ -543,7 +543,8 @@ void run_planner(int pref, char inputplan[]) {
 
   //workaround for empty plans
     printf("Trying empty plan..\n");
-    int x = system(COMMAND_VAL_EMPTYPLAN);
+    snprintf(tmp, MAX_STR_LEN,COMMAND_VAL_EMPTYPLAN,__TOOLDIR__);
+    int x = system(tmp);
    if (x==0){
       FILE *out = fopen("soln.tmp", "w");
       fclose(out);
@@ -559,45 +560,47 @@ void run_planner(int pref, char inputplan[]) {
     snprintf(tmp, MAX_STR_LEN, COMMAND_LAMA_1SOL, seed);
     system(tmp);
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
-	snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, seed);
+	snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, __TOOLDIR__, seed);
 	system(tmp);
 	remove("soln.tmp");
     }
 
 #elif __LMCUT__
     #ifdef TRAPS
-      snprintf(tmp, MAX_STR_LEN, COMMAND_TRAPPER, globGoals);
+      snprintf(tmp, MAX_STR_LEN, COMMAND_TRAPPER, __TOOLDIR__, globGoals);
       system(tmp);
     #else
-      system(COMMAND_LMCUT);
+      snprintf(tmp, MAX_STR_LEN, COMMAND_LMCUT, __TOOLDIR__);
+      system(tmp);
     #endif
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
 	//workaround actions with no parameters
 //        system("cat soln.tmp | sed 's/ )/)/g' > soln.tmp1; mv -T soln.tmp1 soln.tmp; cat soln.tmp");
         system("cat soln.tmp | sed 's/ )/)/g' > soln.tmp1; grep -i -v -E 'pref-op|tabu-op' soln.tmp1 > soln.tmp; grep -i -E 'pref-op|tabu-op' soln.tmp1 >> soln.tmp;rm soln.tmp1; cat soln.tmp");
-        snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, seed);
+        snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, __TOOLDIR__, seed);
 	system(tmp);
         //exit(2);
 	remove("soln.tmp");
     }
 #elif __DFS__
    #ifdef TRAPS
-      snprintf(tmp, MAX_STR_LEN, COMMAND_DFS_TRAPPER, globGoals);
+      snprintf(tmp, MAX_STR_LEN, COMMAND_DFS_TRAPPER, __TOOLDIR__, globGoals);
       system(tmp);
     #else
-    system(COMMAND_DFS);
+    snprintf(tmp, MAX_STR_LEN, COMMAND_DFS, __TOOLDIR__);
+    system(tmp);
     #endif
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
 	//workaround actions with no parameters
 //        system("cat soln.tmp | sed 's/ )/)/g' > soln.tmp1; mv -T soln.tmp1 soln.tmp");
  system("cat soln.tmp | sed 's/ )/)/g' > soln.tmp1; grep -i -v -E 'pref-op|tabu-op' soln.tmp1 > soln.tmp; grep -i -E 'pref-op|tabu-op' soln.tmp1 >> soln.tmp;rm soln.tmp1; cat soln.tmp");
-        snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, seed);
+        snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, __TOOLDIR__, seed);
 	system(tmp);
 	remove("soln.tmp");
     }
 #elif __LPG__
-    if (inputplan == NULL) snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL, seed);
-    else snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL_REPLAN, seed, inputplan);
+    if (inputplan == NULL) snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL, __TOOLDIR__, seed);
+    else snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL_REPLAN, __TOOLDIR__, seed, inputplan);
     system(tmp);
 #elif __HPLANP__
     snprintf(tmp, MAX_STR_LEN, COMMAND_HPLANP_1SOL);
@@ -618,13 +621,13 @@ void run_planner(int pref, char inputplan[]) {
     snprintf(tmp, MAX_STR_LEN, COMMAND_LAMA_2SOL, seed);
     system(tmp);
     if (file_exists("soln.tmp") == TRUE) { /* Per creazione endstate.txt */
-	snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL, seed);
+	snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL,__TOOLDIR__, seed);
 	system(tmp);
 	remove("soln.tmp");
     }
 #elif __LPG__
-    if (inputplan == NULL) snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_2SOL, seed);
-    else snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_2SOL_REPLAN, seed, inputplan);
+    if (inputplan == NULL) snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_2SOL, __TOOLDIR__, seed);
+    else snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_2SOL_REPLAN, __TOOLDIR__, seed, inputplan);
     system(tmp);
 #elif __HPLANP__
     printf("%s\n", COMMAND_HPLANP_2SOL);
@@ -1248,14 +1251,14 @@ int main(int argc, char *argv[]) {
   FILE *fp;
 
   if (argc != 7) {
-    printf("Incorrect command line: <Obj-FILE> <InitialState-FILE> <Act-FILE> <GRAPH-FILE>\n");
+    printf("Incorrect command line: <Obj-FILE> <InitialState-FILE> <predicate-file> <Act-FILE> <GRAPH-FILE> <seed>\n");
     exit(0);
   }
 
   seed = atoi(argv[6]);
   srand(seed);
 
-  numNode = create_graph(argv);
+   numNode = create_graph(argv);
   
   for (indRestart = 0; indRestart < MAX_NUM_RESTART; indRestart++) {
 
@@ -1314,7 +1317,7 @@ int main(int argc, char *argv[]) {
 			snprintf(stateFilename, MAX_STR_LEN, "N%dS%d", x1->num, flawState);
 			snprintf(goalFilename, MAX_STR_LEN, "N%dS%d", x1->num, e->P[k].state); // goal states are states of the current node with a plan
 			create_problem_file(NULL, objFilename, stateFilename, goalFilename);
-			snprintf(tmp, MAX_STR_LEN, COMMAND_RELAXED);
+			snprintf(tmp, MAX_STR_LEN, COMMAND_RELAXED,__TOOLDIR__);
 			system(tmp);
 			numacts = countNumActs("pfile.pddl.soln");
 			remove("pfile.pddl.soln");
