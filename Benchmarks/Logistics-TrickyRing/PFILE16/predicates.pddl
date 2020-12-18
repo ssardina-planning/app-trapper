@@ -10,5 +10,5 @@
 		(in ?obj1 ?obj2)
 		(in-city ?obj ?city)
                 (connected ?loc1 ?loc2)
-        (dummy-goal)
-        (dummy-fact)
+       ; (dummy-goal)
+       ; (dummy-fact)
