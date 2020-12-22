@@ -594,9 +594,9 @@ void run_planner(int pref, char inputplan[])
     }
 #elif __LPG__
     if (inputplan == NULL)
-      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL, seed);
+      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL, __TOOLDIR__, seed);
     else
-      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL_REPLAN, seed, inputplan);
+      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL_REPLAN, __TOOLDIR__, seed, inputplan);
     system(tmp);
 #elif __HPLANP__
     snprintf(tmp, MAX_STR_LEN, COMMAND_HPLANP_1SOL);
