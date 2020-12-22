@@ -30,8 +30,7 @@
 
 /**************** COMMAND LINES ****************/
 #ifdef __SMALL__
-#define COMMAND_LPG_1SOL "%s/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed %d -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects"
-// -inst_with_contraddicting_objects PER BARMAN
+#define COMMAND_LPG_1SOL "%s/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed %d -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
 
 #define COMMAND_LPG_2SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
 
