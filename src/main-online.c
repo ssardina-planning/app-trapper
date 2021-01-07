@@ -477,7 +477,7 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename)
 
       fclose(tmp);
 
-      fprintf(out, ")\n", j); // the j is not used at all, no place in formatted string
+      fprintf(out, ")\n"); // the j is not used at all, no place in formatted string
 #ifdef __LAMA__
       fprintf(out, ":effect (and (not (dummy-fact)) (dummy-goal)))\n\n");
 #elif __LPG__
