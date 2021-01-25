@@ -139,3 +139,4 @@ src/pp-lpg
 pp-online
 endstate.txt
 soln
+*.tabu
