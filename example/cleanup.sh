@@ -1,1 +1,1 @@
-rm -f *.soln N??? domain.pddl pfile*
+rm -f *.soln N??? domain.pddl pfile* *.tabu
