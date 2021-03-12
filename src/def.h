@@ -10,7 +10,7 @@
 #define MAX_STATE 100
 #endif
 #define MAX_SOURCE 100
-#define MAX_STR_LEN 200
+#define MAX_STR_LEN 300
 #define MAX_MAX_STR_LEN 5000
 #define MAX_NUM_RESTART 1
 #define MAX_NUM_STEP 2000
@@ -121,16 +121,19 @@ typedef struct
 
 } Edge;
 
+/* 
+  A node in the controller state: pair (num, domain state)
+ */
 typedef struct
 {
 
-  int num;
+  int num;  // no id of the node
 
   Edge E[MAX_CONN];
-  int numE;
+  int numE; // no of edges connected to node
 
   //  State S[MAX_STATE];
-  State *S;
+  State *S; // domain state of the node
   int numS;
 
   TabuState *T;
