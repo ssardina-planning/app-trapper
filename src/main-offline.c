@@ -564,53 +564,19 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename)
   fclose(out);
 }
 
-/*
-int run_planner() {
+/* 
+  Run the planner
 
-  pid_t pid;
-  //  int defout = dup(1);
-  
-  if((pid = fork()) < 0) {
-    printf("Error: couldn't fork\n");
-    exit(1);
-  }
-  else if(pid == 0) {
-    //    int fd= open("/dev/null", O_RDWR|O_CREAT);
-    //    dup2(fd, 1); // redirect output to the file
-    //    if (execl("/home/saetti/WORKING/PlanningProgram/CODE/lpg-debug", "lpg-debug", "-f", "pfile.pddl", "-o", "domain.pddl", "-n", "1", 0) == -1) {
-    printf("FIGLIO %d\n\n",pid);
-    execl("/bin/sleep", "sleep", "1", 0);
-    //      printf("Error launching planner \n");
-    //      perror("execl");
-    //      exit(1);    
-      //    }
-
-  }
-  else {  
-    wait();
-    printf("PADRE %d\n\n",pid);
-
-    //    dup2(defout, 1); // redirect output back to stdout
-
-  }
-  return pid;
-}
-*/
-
+  PREF: whether to use preferences or not
+ */
 void run_planner(int pref, char inputplan[])
 {
 
   char cmd_exec[MAX_STR_LEN];
 
-  seed++;
+  seed++; // increment the seed to get a different plan hopefully
 
-  /*
-  static int x = 0;
-  x++;
-  if (x == 4) return; // TESTING FAILURE
-*/
-
-  //workaround for empty plans
+  // Workaround for empty plans
   printf("Trying empty plan..\n");
   snprintf(cmd_exec, MAX_STR_LEN, COMMAND_VAL_EMPTYPLAN, __TOOLDIR__);
   int x = system(cmd_exec);
@@ -640,6 +606,7 @@ void run_planner(int pref, char inputplan[])
 
 #elif __LMCUT__
 #ifdef TRAPS
+    // Here we pass the global goals to do trap reasoning
     snprintf(cmd_exec, MAX_STR_LEN, COMMAND_TRAPPER, __TOOLDIR__, globGoals);
     system(cmd_exec);
 #else
@@ -737,7 +704,7 @@ void define_initial_state(char **argv)
 #ifndef __HPLANP__
   create_domain_file(NULL, argv[3], argv[4]);
 #endif
-  run_planner(0, NULL);
+  run_planner(FALSE, NULL);
 
   // We need this file - create a dummy one with endstate.txt
   if (file_exists("endstate.txt") == FALSE)
@@ -1552,7 +1519,6 @@ int main(int argc, char *argv[])
             }
           }
 #endif
-
           snprintf(stateFilename, MAX_STR_LEN, "N%dS%d", x1->num, flawState);
           create_problem_file(x2, objFilename, stateFilename, e->goalFilename);
 #ifdef TRAPS

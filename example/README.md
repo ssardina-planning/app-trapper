@@ -1,17 +1,17 @@
 # Examples
 
-First of all I apologize for a (very) late response. For the former example, as you suggest, the online LPG option was unlucky (as for the most of the benchmarks). 
-
-## Airport Domain
+Run examples can be seen in `pp-online.out`  and `pp-lpg.out`.
+## Simple
 
 This is based on the `problem-1` of the Airport domain) for which the online LPG version works.
 
-Results can be seen in `pp-online.out`  and `pp-lpg.out`.
+It is a very single linear problem `G0 -> G1 -> G2` that is easily solvable offline and online.
 
 Let us first run the _online_ solver:
 
 ```bash
-$ ../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 lpg
+$ cd simple
+$ ../../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 lpg
 Checking plan: emptyplan.tmp
 Plan executed successfully - checking goal
 Goal not satisfied
@@ -158,7 +158,8 @@ SUCCESS
 Of course, if the online solver solves the task, the _offline_ solver will do it too:
 
 ```bash
-le (master)$ ../src/pp-lpg obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 
+$ cd complex
+$ ../../src/pp-lpg obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 
 Trying empty plan..
 Checking plan: emptyplan.tmp
 Plan executed successfully - checking goal
@@ -424,4 +425,7 @@ List of flaw:
 SUCCESS
 ```
 
+## Complex
+
+This is one of the Woodworking examples, where the offline versions and the online versions _with traps_ work, but the online ones without traps do not.
 
