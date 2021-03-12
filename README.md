@@ -10,13 +10,13 @@ To compile, get into `src/`, update the paths in `def.h` if needed, and then run
 make online
 ```
 
-or 
+and/or
 
 ```bash
 make offline
 ```
 
-for the online or offline version of the tool, respectively.
+to build the APP online version and/or the offline versions of the tool, respectively.
 
 To run the tool, first set-it up:
 
