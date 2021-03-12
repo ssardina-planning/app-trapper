@@ -1,4 +1,4 @@
-# Example
+# Examples
 
 First of all I apologize for a (very) late response. For the former example, as you suggest, the online LPG option was unlucky (as for the most of the benchmarks). 
 
