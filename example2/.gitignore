@@ -1,3 +1,5 @@
 domain.pddl
 pfile.pddl
 pfile-trap.pddl
+*.soln
+N*
