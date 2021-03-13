@@ -1350,15 +1350,21 @@ void print_flaws()
  */
 int main(int argc, char *argv[])
 {
-
   int indStep, indRestart, x, i, j, k, l, m, flawState, fail, bestState;
   Flaw f;
   Node *x1, *x2;
   Edge *e;
-  char *objFilename = argv[1], *initFilename = argv[2], *predicatesFilename = argv[3], *actsFilename = argv[4], *graphFilename = argv[5], stateFilename[MAX_STR_LEN], tmp[MAX_STR_LEN];
+
+  char *objFilename = argv[1];
+  char *initFilename = argv[2];
+  char *predicatesFilename = argv[3];
+  char *actsFilename = argv[4];
+  char *graphFilename = argv[5];
+  char stateFilename[MAX_STR_LEN];
+  char tmp[MAX_STR_LEN];
   FILE *fp;
 
-  // We need
+  // We need 8 arguments, with the last one being what planner to use
   if (argc != 8)
   {
     printf("Incorrect command line: <Obj-FILE> <InitialState-FILE> <predicate-file> <Act-FILE> <GRAPH-FILE> <seed> <planner_type>\n");
@@ -1385,7 +1391,7 @@ int main(int argc, char *argv[])
 
     create_problem_file(&NodeVect[e->to_node], objFilename, initFilename, e->goalFilename);
 
-    // Now we call the TRAPPER
+    // Now we call the TRAPPER tool
     run_trapper(e->numG, argv[7]);
 
     if (file_exists("endstate.txt") == FALSE)

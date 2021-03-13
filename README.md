@@ -12,13 +12,15 @@ $ make online
 $ make offline
 ```
 
-to buid the `pp-online` online solver and the various `pp-<solver>` offline versions.
+to buid the `pp-online` online solver and the various `pp-<solver>` offline solvers.
 
 Before running the solvers, first set it up as follows:
 
-1. Tools `validate` and `trapper` need to be in `tools/`.
-2. Planner `lpg` must be in `tools/`.
-3. In the problem to solve, there must be an empty file called `emptyplan.tmp` (its used is hard-coded in the solver).
+1. The following binary tools should be available in `tools/`:
+   - `validate` binary, from the [VAL](https://github.com/KCL-Planning/VAL) project.
+   - `trapper` binary, presented at ICAPS16 paper [_Traps, Invariants, and Dead-Ends_](https://www.aaai.org/ocs/index.php/ICAPS/ICAPS16/paper/view/13190).
+   - `lpg` preference-based planner binary; check [here](https://lpg.unibs.it/).
+2. In any problem to solve, there must be a dummy empty file called `emptyplan.tmp` (its used is hard-coded in the solver).
      * Just create one doing:  `touch emptyplan.tmp`.
   
 Then, to run the **_online_** solvers:
@@ -35,6 +37,10 @@ where `<planner_type>` could be one of the following ones:
 * `dfs_trap`: uses trapper with DFS+.
 * `dfs_no_trap`: uses DFS+ without trapper.
 * `lpg`: uses LPG without trapper
+
+When using trap reasoning, the tool used is `trapper`:
+
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals 1 --plan soln.tmp
 
 For example, this will run the online solver using on the complex example using the LPG planner with no traps (which will fail) and the DFS+ planner with trap reasoning (which will succeed):
 
