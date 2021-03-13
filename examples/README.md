@@ -4,7 +4,7 @@ Run examples can be seen in `pp-online.out`  and `pp-lpg.out`.
 
 All examples need an `emptyplan.tmp` file that can be created via:
 
-```
+```bash
 $ touch emptyplan.tmp
 ```
 
