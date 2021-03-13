@@ -260,7 +260,7 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
 	    fprintf(out, "(dummy-tabustate%d)\n", i);
             fprintf(out_trap, "(dummy-tabustate%d)\n", i);
 	}
-        
+
     }
 */
 #ifdef __LAMA__
@@ -372,12 +372,6 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
     }
 
     fprintf(out, "\n)");
-
-    /*      
-      for (i = 0; i < numTabuState; i++) {
-	  fprintf(out, "(dummy-tabustate%d)\n", i);
-      }
-*/
   }
 #endif
   fclose(out);
@@ -791,7 +785,7 @@ int create_graph(char *argv[])
   {
     memset(visitednodes, 0, numnode * sizeof(int));
     //visitednodes[i]=1;
-    getFutureGoalsR(&NodeVect[i], visitednodes, NodeVect[i].future_goals, &NodeVect[i].futuregoalcount);
+    getFutureGoalsR(&NodeVect[i], visitednodes, (char *) NodeVect[i].future_goals, &NodeVect[i].futuregoalcount);
   }
 
   //define_initial_state(argv);
