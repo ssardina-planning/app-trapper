@@ -37,7 +37,7 @@ Every solver, offline and online solves the problem.
 Please refer to the `*.out` log files in the example folder for details.
 ## Complex Example
 
-This is one of the Woodworking examples. It is quite complex with many goals and branches, but it is still finite and with no loops, so that any successful run is meant to terminate.
+This is one of the Woodworking examples. It is quite complex with 23 sequential goals, but it is still finite and with no loops, so that any successful run is meant to terminate.
 
 As the problem is indeed solvable, the _offline solvers_ find solutions, except for DFS+ _without traps_, as it keeps trying until LPG fails due to too many operators (in principle, if we compiled an LPG version that allowed operators, DFS+ will keep searching until finding a solution). Note that when traps are used in the DFS+ offline solver, a solution is found, as the search is less erratic.
 

@@ -841,7 +841,7 @@ int create_graph(char *graph_filename)
   {
     memset(visitednodes, 0, numnode * sizeof(int));
     //visitednodes[i]=1;
-    getFutureGoalsR(&NodeVect[i], &visitednodes, NodeVect[i].future_goals, &NodeVect[i].futuregoalcount);
+    getFutureGoalsR(&NodeVect[i], visitednodes, NodeVect[i].future_goals, &NodeVect[i].futuregoalcount);
   }
 #endif
 

@@ -132,11 +132,7 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
 {
 
   FILE *tmp, *fp = fopen(objFilename, "r");
-#ifdef __HPLANP__
-  FILE *out = fopen("pfile.pddl3", "w");
-#else
   FILE *out = fopen("pfile.pddl", "w");
-#endif
   FILE *out_trap = fopen("pfile-trap.pddl", "w");
   char str[MAX_STR_LEN];
   int i, j;
@@ -167,8 +163,6 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
   fprintf(out, "(:INIT (= (total-cost) 0)\n\t(dummy-fact)\n");
 #elif __LPG__
   fprintf(out, "(:INIT \n");
-#elif __HPLANP__
-  fprintf(out, "(:init (dummy-fact)\n");
 #endif
   fprintf(out_trap, "(:init \n");
 
@@ -204,9 +198,6 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
 #elif __LPG__
     fprintf(out, "(:goal (and )))\n");
     //fprintf(out, "(:metric minimize (cost))\n)");
-#elif __HPLANP__
-    fprintf(out, "(:goal (and (dummy-fact)))\n");
-    fprintf(out, "(:constraints (and (preference p (at end (dummy-fact)))))\n)\n");
 #endif
     fprintf(out_trap, "(:goal (and ))\n)\n");
   }
@@ -524,6 +515,12 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename)
   fclose(out);
 }
 
+/* 
+  Runs the planner
+
+  pref = whether preferences will be used or not
+  inputplan = the input of the plan when replanning in LPG
+ */
 void run_planner(int pref, char inputplan[])
 {
 
@@ -554,18 +551,6 @@ void run_planner(int pref, char inputplan[])
     else
       snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_1SOL_REPLAN, __TOOLDIR__, seed, inputplan);
     system(tmp);
-#elif __HPLANP__
-    snprintf(tmp, MAX_STR_LEN, COMMAND_HPLANP_1SOL);
-    printf("%s\n\n", COMMAND_HPLANP_1SOL);
-    system(tmp);
-    if (file_exists("soln.tmp") == TRUE)
-    { /* Per creazione endstate.txt */
-      remove_constraints("pfile.pddl3", "pfile.pddl");
-      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL_FROM_HPLANP, seed);
-      printf("%s", tmp);
-      system(tmp);
-      remove("soln.tmp");
-    }
 #endif
   }
   else
@@ -581,21 +566,10 @@ void run_planner(int pref, char inputplan[])
     }
 #elif __LPG__
     if (inputplan == NULL)
-      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_2SOL, seed);
+      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_2SOL, __TOOLDIR__, seed);
     else
-      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_2SOL_REPLAN, seed, inputplan);
+      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_2SOL_REPLAN, __TOOLDIR__, seed, inputplan);
     system(tmp);
-#elif __HPLANP__
-    printf("%s\n", COMMAND_HPLANP_2SOL);
-    snprintf(tmp, MAX_STR_LEN, COMMAND_HPLANP_2SOL);
-    system(tmp);
-    if (file_exists("soln.tmp") == TRUE)
-    { /* Per creazione endstate.txt */
-      remove_constraints("pfile.pddl3", "pfile.pddl");
-      snprintf(tmp, MAX_STR_LEN, COMMAND_LPG_INPUTSOL_FROM_HPLANP, seed);
-      system(tmp);
-      remove("soln.tmp");
-    }
 #endif
   }
 
@@ -703,9 +677,7 @@ void define_initial_state(char **argv)
 {
 
   create_problem_file(NULL, argv[1], argv[2], NULL);
-#ifndef __HPLANP__
   create_domain_file(NULL, argv[3], argv[4]);
-#endif
   run_planner(0, NULL);
 
   if (file_exists("endstate.txt") == FALSE)
@@ -819,7 +791,7 @@ int create_graph(char *argv[])
   {
     memset(visitednodes, 0, numnode * sizeof(int));
     //visitednodes[i]=1;
-    getFutureGoalsR(&NodeVect[i], &visitednodes, NodeVect[i].future_goals, &NodeVect[i].futuregoalcount);
+    getFutureGoalsR(&NodeVect[i], visitednodes, NodeVect[i].future_goals, &NodeVect[i].futuregoalcount);
   }
 
   //define_initial_state(argv);
