@@ -10,7 +10,7 @@
 #define MAX_STATE 100
 #endif
 #define MAX_SOURCE 100
-#define MAX_STR_LEN 300
+#define MAX_STR_LEN 500
 #define MAX_MAX_STR_LEN 5000
 #define MAX_NUM_RESTART 1
 #define MAX_NUM_STEP 2000
@@ -34,12 +34,6 @@
 
 #define COMMAND_LPG_2SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
 
-#define COMMAND_LAMA_1SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality -f pfile.pddl -o domain.pddl -n 1 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp ; fi"
-#define COMMAND_LAMA_2SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality -f pfile.pddl -o domain.pddl -n 2 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp; fi"
-
-#define COMMAND_HPLANP_1SOL "/home/lpg/CODE/tlplan/run 1 $(pwd)"
-#define COMMAND_HPLANP_2SOL "/home/lpg/CODE/tlplan/run 2 $(pwd)"
-
 #define COMMAND_LPG_1SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 60 -input_plan %s"
 #define COMMAND_LPG_2SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -input_plan %s"
 
@@ -59,17 +53,11 @@
 
 #define COMMAND_LPG_1SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -numtry 1500 -lowmemory"
 #define COMMAND_LPG_2SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -numtry 1500 -lowmemory"
-#define COMMAND_LAMA_1SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality-large -f pfile.pddl -o domain.pddl -n 1 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp ; fi"
-#define COMMAND_LAMA_2SOL "/home/lpg/CODE/seq-sat-lama-2011/lama-quality-large -f pfile.pddl -o domain.pddl -n 2 -seed %d ; if [ -f soln ]; then cat soln | sed 's/ )/)/g' > soln.tmp; fi"
 #define COMMAND_LPG_1SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -input_plan %s -numtry 1500 -lowmemory"
 #define COMMAND_LPG_2SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -input_plan %s -numtry 1500 -lowmemory"
 #endif
 
-/*
-#define COMMAND_RELAXED "/home/lukas/Planners/lpg -f pfile.pddl -o domainRelaxed.pddl -n 1 -seed 1234 -noise 0; mv soln pfile.pddl.soln"
-*/
 #define COMMAND_RELAXED "%s/ff -f pfile.pddl -o domainRelaxed.pddl"
-
 #define COMMAND_LPG_INPUTSOL "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed %d -same_objects"
 #define COMMAND_LPG_INPUTSOL_FROM_HPLANP "lpg -f pfile.pddl -o domainHPlanP.pddl -n 1 -input_plan soln.tmp -seed %d -same_objects"
 

@@ -468,7 +468,7 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename)
 
   if (fp == NULL)
   {
-    printf("File %s does not exist!\n");
+    printf("File %s does not exist!\n", actsFilename);
     exit(0);
   }
 
@@ -506,7 +506,7 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename)
 
       fclose(tmp);
 
-      fprintf(out, ")\n", j);
+      fprintf(out, ")\n");
 #ifdef __LAMA__
       fprintf(out, ":effect (and (not (dummy-fact)) (dummy-goal)))\n\n");
 #elif __LPG__
@@ -693,6 +693,50 @@ void run_planner(int pref, char inputplan[])
 
   fflush(stdout);
 } // run_planner
+
+
+/* 
+  Move filename1 to filename2 but strip down some useless stuff from filename1
+ */
+int modifyANDrename(char *filename1, char *filename2)
+{
+
+  FILE *fp1, *fp2;
+  char tmp[MAX_STR_LEN], str[MAX_STR_LEN];
+
+  /* open first file */
+  if ((fp1 = fopen(filename1, "r")) == NULL)
+  {
+    printf("Cannot open first file %s.\n", filename1);
+    exit(1);
+  }
+
+  /* open second file */
+  if ((fp2 = fopen(filename2, "w")) == NULL)
+  {
+    printf("Cannot open second file %s.\n", filename2);
+    exit(1);
+  }
+
+  while (feof(fp1) == 0)
+  {
+    if (fgets(str, MAX_STR_LEN, fp1) != NULL)
+    {
+      strncpy(tmp, &str[1], 5);
+      tmp[5] = '\0';
+      if (strcmp(tmp, "dummy") != 0)  // SALTO PREDICATI DUMMY-FACT e DUMMY-TABUSTATE
+      {
+        if (strstr(tmp, "not-unary") != NULL || // FIX CASO SPECIALE PER PIPESWORLD
+            strstr(tmp, "not-") == NULL)        // SALTO PREDICATI NEGATI (derivanti ad es. dall'uso della tabu state)
+          fprintf(fp2, "%s", str);
+      }
+    }
+  }
+
+  fclose(fp1);
+  fclose(fp2);
+  remove(filename1);
+}
 
 /*
   Sets the initial state in NodeVect[0]
@@ -919,48 +963,7 @@ int countNumActs(char *filename)
   return i - 1;
 }
 
-/* 
-  Move filename1 to filename2 but strip down some useless stuff from filename1
- */
-int modifyANDrename(char *filename1, char *filename2)
-{
 
-  FILE *fp1, *fp2;
-  char tmp[MAX_STR_LEN], str[MAX_STR_LEN];
-
-  /* open first file */
-  if ((fp1 = fopen(filename1, "r")) == NULL)
-  {
-    printf("Cannot open first file %s.\n", filename1);
-    exit(1);
-  }
-
-  /* open second file */
-  if ((fp2 = fopen(filename2, "w")) == NULL)
-  {
-    printf("Cannot open second file %s.\n", filename2);
-    exit(1);
-  }
-
-  while (feof(fp1) == 0)
-  {
-    if (fgets(str, MAX_STR_LEN, fp1) != NULL)
-    {
-      strncpy(tmp, &str[1], 5);
-      tmp[5] = '\0';
-      if (strcmp(tmp, "dummy") != 0)  // SALTO PREDICATI DUMMY-FACT e DUMMY-TABUSTATE
-      {
-        if (strstr(tmp, "not-unary") != NULL || // FIX CASO SPECIALE PER PIPESWORLD
-            strstr(tmp, "not-") == NULL)        // SALTO PREDICATI NEGATI (derivanti ad es. dall'uso della tabu state)
-          fprintf(fp2, "%s", str);
-      }
-    }
-  }
-
-  fclose(fp1);
-  fclose(fp2);
-  remove(filename1);
-}
 
 int diff(char *filename1, char *filename2)
 {

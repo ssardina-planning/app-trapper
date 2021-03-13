@@ -222,7 +222,7 @@ Interestingly, however, if we run the online DFS+ _with traps_, then the system 
 ```bash
 $ cd complex
 $ touch emptyplan.tmp
-$ ../../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 dfs_no_traps
+$ ../../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 dfs_traps
 
 ....
 
@@ -238,3 +238,4 @@ Value: 0
 
 SUCCESS
 ```
+

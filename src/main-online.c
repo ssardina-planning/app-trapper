@@ -535,39 +535,6 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename)
   fclose(out);
 }
 
-/*
-int run_planner() {
-
-  pid_t pid;
-  //  int defout = dup(1);
-  
-  if((pid = fork()) < 0) {
-    printf("Error: couldn't fork\n");
-    exit(1);
-  }
-  else if(pid == 0) {
-    //    int fd= open("/dev/null", O_RDWR|O_CREAT);
-    //    dup2(fd, 1); // redirect output to the file
-    //    if (execl("/home/saetti/WORKING/PlanningProgram/CODE/lpg-debug", "lpg-debug", "-f", "pfile.pddl", "-o", "domain.pddl", "-n", "1", 0) == -1) {
-    printf("FIGLIO %d\n\n",pid);
-    execl("/bin/sleep", "sleep", "1", 0);
-    //      printf("Error launching planner \n");
-    //      perror("execl");
-    //      exit(1);    
-      //    }
-
-  }
-  else {  
-    wait();
-    printf("PADRE %d\n\n",pid);
-
-    //    dup2(defout, 1); // redirect output back to stdout
-
-  }
-  return pid;
-}
-*/
-
 void run_planner(int pref, char inputplan[])
 {
 
@@ -646,13 +613,58 @@ void run_planner(int pref, char inputplan[])
   fflush(stdout);
 }
 
+int modifyANDrename(char *filename1, char *filename2)
+{
+
+  FILE *fp1, *fp2;
+  char tmp[MAX_STR_LEN], str[MAX_STR_LEN];
+
+  /* open first file */
+  if ((fp1 = fopen(filename1, "r")) == NULL)
+  {
+    printf("Cannot open first file %s.\n", filename1);
+    exit(1);
+  }
+
+  /* open second file */
+  if ((fp2 = fopen(filename2, "w")) == NULL)
+  {
+    printf("Cannot open second file %s.\n", filename2);
+    exit(1);
+  }
+
+  while (feof(fp1) == 0)
+  {
+    if (fgets(str, MAX_STR_LEN, fp1) != NULL)
+    {
+      strncpy(tmp, &str[1], 5);
+      tmp[5] = '\0';
+      if (strcmp(tmp, "dummy") != 0)
+      {                                         // SALTO PREDICATI DUMMY-FACT e DUMMY-TABUSTATE
+        if (strstr(tmp, "not-unary") != NULL || // FIX CASO SPECIALE PER PIPESWORLD
+            strstr(tmp, "not-") == NULL)        // SALTO PREDICATI NEGATI (derivanti ad es. dall'uso della tabu state)
+          fprintf(fp2, "%s", str);
+        /*
+  strncpy(tmp, &str[1], 3);
+  tmp[3] = '\0';
+  if (strcmp(tmp, "not") != 0) fprintf(fp2, "%s", str); // SALTO PREDICATI NEGATI (derivanti ad es. dall'uso della tabu state)
+*/
+      }
+    }
+  }
+
+  fclose(fp1);
+  fclose(fp2);
+  remove(filename1);
+} // end modifyANDrename
+
 void run_trapper(int goals, char *planner)
 {
   char tmp[MAX_STR_LEN];
 
   // Workaround for empty plans
   // SS: I think this validates an empty plan against domain.pddl pfile.pddd. If the empty plan gets the goal, then done
-  snprintf(tmp, MAX_STR_LEN,COMMAND_VAL_EMPTYPLAN, __TOOLDIR__);
+  snprintf(tmp, MAX_STR_LEN, COMMAND_VAL_EMPTYPLAN, __TOOLDIR__);
   int x = system(tmp);
   if (x == 0)
     return;
@@ -682,7 +694,7 @@ void run_trapper(int goals, char *planner)
 
   remove("endstate.txt");
   //validating plan
-  snprintf(tmp, MAX_STR_LEN,COMMAND_VAL_PLAN, __TOOLDIR__);
+  snprintf(tmp, MAX_STR_LEN, COMMAND_VAL_PLAN, __TOOLDIR__);
   x = system(tmp);
   if (x != 0)
     return;
@@ -892,51 +904,6 @@ int countNumActs(char *filename)
   fclose(fp);
 
   return i - 1;
-}
-
-int modifyANDrename(char *filename1, char *filename2)
-{
-
-  FILE *fp1, *fp2;
-  char tmp[MAX_STR_LEN], str[MAX_STR_LEN];
-
-  /* open first file */
-  if ((fp1 = fopen(filename1, "r")) == NULL)
-  {
-    printf("Cannot open first file %s.\n", filename1);
-    exit(1);
-  }
-
-  /* open second file */
-  if ((fp2 = fopen(filename2, "w")) == NULL)
-  {
-    printf("Cannot open second file %s.\n", filename2);
-    exit(1);
-  }
-
-  while (feof(fp1) == 0)
-  {
-    if (fgets(str, MAX_STR_LEN, fp1) != NULL)
-    {
-      strncpy(tmp, &str[1], 5);
-      tmp[5] = '\0';
-      if (strcmp(tmp, "dummy") != 0)
-      {                                         // SALTO PREDICATI DUMMY-FACT e DUMMY-TABUSTATE
-        if (strstr(tmp, "not-unary") != NULL || // FIX CASO SPECIALE PER PIPESWORLD
-            strstr(tmp, "not-") == NULL)        // SALTO PREDICATI NEGATI (derivanti ad es. dall'uso della tabu state)
-          fprintf(fp2, "%s", str);
-        /*
-  strncpy(tmp, &str[1], 3);
-  tmp[3] = '\0';
-  if (strcmp(tmp, "not") != 0) fprintf(fp2, "%s", str); // SALTO PREDICATI NEGATI (derivanti ad es. dall'uso della tabu state)
-*/
-      }
-    }
-  }
-
-  fclose(fp1);
-  fclose(fp2);
-  remove(filename1);
 }
 
 int diff(char *filename1, char *filename2)

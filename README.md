@@ -7,22 +7,19 @@ This is the PP-LPG solver for APP adapted to include dead-end (i.e., traps) reas
 To compile, get into `src/`, update the paths in `def.h` if needed, and then run:
 
 ```bash
-make online
+$ cd src/
+$ make online
+$ make offline
 ```
 
-and/or
-
-```bash
-make offline
-```
-
-to build the APP online version and/or the offline versions of the tool, respectively.
+to buid the `pp-online` online solver and the various `pp-<solver>` offline versions.
 
 To run the tool, first set-it up:
 
-* Tools `validate` and `trapper` need to be in `tools/`.
-* Planner `lpg` must be need to be in `tools/` as well.
-* In the problem to solve, there must be an empty file called `emptyplan.tmp` (its used is hard-coded in the solver). Just create one doing:  `touch emptyplan.tmp`.
+1. Tools `validate` and `trapper` need to be in `tools/`.
+2. Planner `lpg` must be in `tools/`.
+3. In the problem to solve, there must be an empty file called `emptyplan.tmp` (its used is hard-coded in the solver).
+     * Just create one doing:  `touch emptyplan.tmp`.
   
 Then run:
 
@@ -44,16 +41,16 @@ where `<planner_type>` could be:
 * `dfs_no_trap`: DFS+ without trapper.
 * `lpg`: LPG without trapper
 
-
 For the `example/` folder (and after compiling `pp-` binaries):
 
 ```bash
 ../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 lpg
 ```
+
 or
 
 ```bash
-../src/pp-lpg obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 
+../src/pp-lpg obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123
 ```
 
 
