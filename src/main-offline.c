@@ -46,17 +46,6 @@ int file_exists(const char *filename)
   }
 }
 
-int file_exists2(const char *filename)
-{
-  FILE *file = fopen(filename, "r");
-  if (file != NULL)
-  {
-    fclose(file);
-    return TRUE;
-  }
-  return FALSE;
-}
-
 void insert_flaw(int node, int state)
 {
 
@@ -106,13 +95,13 @@ void remove_constraints(char *origFilename, char *destFilename)
   if (in == NULL)
   {
     printf("File %s cannot be opened!\n", origFilename);
-    exit(0);
+    exit(1);
   }
 
   if (out == NULL)
   {
     printf("File %s cannot be opened!\n", destFilename);
-    exit(0);
+    exit(1);
   }
 
   while (feof(in) == 0)
@@ -141,13 +130,9 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
 {
 
   FILE *tmp, *fp = fopen(objFilename, "r");
-#ifdef __HPLANP__
-  FILE *out = fopen("pfile.pddl3", "w");
-#else
   FILE *out = fopen("pfile.pddl", "w");
 #ifdef TRAPS
   FILE *out_traps = fopen("pfile-trap.pddl", "w");
-#endif
 #endif
   char str[MAX_STR_LEN];
   int i, j;
@@ -157,12 +142,12 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
   if (fp == NULL)
   {
     printf("File %s cannot be opened!\n", objFilename);
-    exit(0);
+    exit(1);
   }
   if (out == NULL)
   {
     printf("File pfile.pddl cannot be opened!\n");
-    exit(0);
+    exit(1);
   }
 
   while (feof(fp) == 0)
@@ -185,16 +170,14 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
 #ifdef TRAPS
   fprintf(out_traps, "(:INIT (= (cost) 0)\n\t(dummy-fact)\n");
 #endif
-#elif __HPLANP__
-  fprintf(out, "(:init (dummy-fact)\n");
 #endif
 
   fp = fopen(initFilename, "r");
 
   if (fp == NULL)
   {
-    printf("111File %s cannot be opened!\n", initFilename);
-    exit(0);
+    printf("File %s cannot be opened!\n", initFilename);
+    exit(1);
   }
 
   while (feof(fp) == 0)
@@ -238,7 +221,7 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
     if (fp == NULL)
     {
       printf("222File %s cannot be opened!\n", goalFilename);
-      exit(0);
+      exit(1);
     }
 
     fprintf(out, "(:goal (and\n");
@@ -256,7 +239,7 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
         if (fpt == NULL)
         {
           printf("233File %s cannot be opened!\n", n->future_goals[i]);
-          exit(0);
+          exit(1);
         }
         fprintf(out_traps, ";goal %s\n", n->future_goals[i]);
         while (feof(fpt) == 0)
@@ -321,7 +304,7 @@ void create_problem_file(Node *n, char *objFilename, char *initFilename, char *g
     if (fp == NULL)
     {
       printf("222File %s cannot be opened!\n", goalFilename);
-      exit(0);
+      exit(1);
     }
 
     fprintf(out, "(:goal (and\n(dummy-fact)\n");
@@ -441,7 +424,7 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename)
   if (fp == NULL)
   {
     printf("File %s does not exist!\n", predicatesFilename);
-    exit(0);
+    exit(1);
   }
 
   while (feof(fp) == 0)
@@ -469,7 +452,7 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename)
   if (fp == NULL)
   {
     printf("File %s does not exist!\n", actsFilename);
-    exit(0);
+    exit(1);
   }
 
   fprintf(out, "(:functions (cost))");
@@ -646,18 +629,6 @@ void run_planner(int pref, char inputplan[])
     else
       snprintf(cmd_exec, MAX_STR_LEN, COMMAND_LPG_1SOL_REPLAN, __TOOLDIR__, seed, inputplan);
     system(cmd_exec);
-#elif __HPLANP__
-    snprintf(cmd_exec, MAX_STR_LEN, COMMAND_HPLANP_1SOL);
-    printf("%s\n\n", COMMAND_HPLANP_1SOL);
-    system(cmd_exec);
-    if (file_exists("soln.tmp") == TRUE)
-    { /* Per creazione endstate.txt */
-      remove_constraints("pfile.pddl3", "pfile.pddl");
-      snprintf(cmd_exec, MAX_STR_LEN, COMMAND_LPG_INPUTSOL_FROM_HPLANP, seed);
-      printf("%s", cmd_exec);
-      system(cmd_exec);
-      remove("soln.tmp");
-    }
 #endif
   }
   else
@@ -677,17 +648,6 @@ void run_planner(int pref, char inputplan[])
     else
       snprintf(cmd_exec, MAX_STR_LEN, COMMAND_LPG_2SOL_REPLAN, __TOOLDIR__, seed, inputplan);
     system(cmd_exec);
-#elif __HPLANP__
-    printf("%s\n", COMMAND_HPLANP_2SOL);
-    snprintf(cmd_exec, MAX_STR_LEN, COMMAND_HPLANP_2SOL);
-    system(cmd_exec);
-    if (file_exists("soln.tmp") == TRUE)
-    { /* Per creazione endstate.txt */
-      remove_constraints("pfile.pddl3", "pfile.pddl");
-      snprintf(cmd_exec, MAX_STR_LEN, COMMAND_LPG_INPUTSOL_FROM_HPLANP, seed);
-      system(cmd_exec);
-      remove("soln.tmp");
-    }
 #endif
   }
 
@@ -754,7 +714,7 @@ void define_initial_state(char **argv)
   if (file_exists("endstate.txt") == FALSE)
   {
     printf("Warning: endstate.txt doesn't exist! Create a dummy one with endstate.txt \n\n");
-    exit(0);
+    exit(1);
   }
 
   modifyANDrename("endstate.txt", "N0S0");
@@ -811,7 +771,7 @@ int create_graph(char *graph_filename)
   if (file_graph == NULL)
   {
     printf("Graph file %s does not exist!\n", graph_filename);
-    exit(0);
+    exit(1);
   }
 
   // Init NodeVect
@@ -1060,7 +1020,7 @@ void check_graph()
           {
             printf("\nWarning for SOURCE-DATA: No state of node %d generated from plan %s of node %d state %d\n", NodeVect[to_node].num, NodeVect[i].E[k].P[l].PlanFilename, NodeVect[i].num, NodeVect[i].S[j].num);
             fflush(stdout);
-            exit(0);
+            exit(1);
           }
         }
       }
@@ -1078,7 +1038,7 @@ void check_graph()
         {
           printf("\nWarning for FLAWVECT: Node %d State %d is in flaw-list\n", NodeVect[i].num, NodeVect[i].S[j].num);
           fflush(stdout);
-          exit(0);
+          exit(1);
         }
       }
       else if (NodeVect[i].numE > 0)
@@ -1094,7 +1054,7 @@ void check_graph()
         {
           printf("\nWarning for FLAWVECT: Node %d State %d is not in flaw-list\n", NodeVect[i].num, NodeVect[i].S[j].num);
           fflush(stdout);
-          exit(0);
+          exit(1);
         }
       }
     }
@@ -1117,7 +1077,7 @@ void check_graph()
     {
       printf("\nWarning for STATE: State %d of Node %d does not exists but it is in flaw-list\n", NodeVect[node].S[state].num, NodeVect[node].num);
       fflush(stdout);
-      exit(0);
+      exit(1);
     }
   }
 
@@ -1129,7 +1089,7 @@ void check_graph()
       {
         printf("\nWarning for STATE: State %d of Node %d with no source\n", NodeVect[i].S[j].num, i);
         fflush(stdout);
-        exit(0);
+        exit(1);
       }
       for (k = 0; k < NodeVect[i].S[j].numSource; k++)
       {
@@ -1150,7 +1110,7 @@ void check_graph()
         {
           printf("\nWarning for PLAN: State %d of Node %d with sourcestate %d and sourcenode %d without the plan\n", NodeVect[i].S[j].num, NodeVect[i].num, state, node);
           fflush(stdout);
-          exit(0);
+          exit(1);
         }
       }
     }
@@ -1167,7 +1127,7 @@ void check_graph()
       {
         printf("\nWarning for FILE: State %d of Node %d\n", NodeVect[i].num, NodeVect[i].S[j].num);
         fflush(stdout);
-        exit(0);
+        exit(1);
       }
     }
 
@@ -1179,7 +1139,7 @@ void check_graph()
         {
           printf("\nWarning for FILE: %s\n", NodeVect[i].E[j].P[k].PlanFilename);
           fflush(stdout);
-          exit(0);
+          exit(1);
         }
       }
     }
@@ -1203,7 +1163,7 @@ void check_graph()
         {
           printf("\nWarning for FILE+: %s should not exist!\n", tmp);
           fflush(stdout);
-          exit(0);
+          exit(1);
         }
       }
     }
@@ -1229,7 +1189,7 @@ void check_graph()
           {
             printf("\nWarning for FILE+: %s should not exist!\n", tmp);
             fflush(stdout);
-            exit(0);
+            exit(1);
           }
         }
       }
@@ -1414,7 +1374,7 @@ int main(int argc, char *argv[])
   if (argc != 7)
   {
     printf("Incorrect command line: <Obj-FILE> <InitialState-FILE> <predicate-file> <Act-FILE> <GRAPH-FILE> <seed>\n");
-    exit(0);
+    exit(1);
   }
 
   // Set the seed from the 6-th CLI argument
@@ -1442,7 +1402,7 @@ int main(int argc, char *argv[])
       if (numFlaw == 0)
       {
         printf("SUCCESS\n\n");  // we are done, no flaws to fix!
-        return 1;
+        return 0;
       }
 
       f = selectFlaw();
@@ -1538,9 +1498,6 @@ int main(int argc, char *argv[])
             pref_flag = TRUE;
           else
             pref_flag = FALSE;
-#ifndef __HPLANP__
-          create_domain_file(x2, predicatesFilename, actsFilename);
-#endif
 #endif
 
           remove("soln");
@@ -1601,7 +1558,7 @@ int main(int argc, char *argv[])
           else if (file_exists("endstate.txt") == FALSE)
           {
             printf("Warning: endstate.txt doesn't exist!!\n\n");
-            exit(0);
+            exit(1);
           }
 
           if (e->numP >= MAX_STATE)

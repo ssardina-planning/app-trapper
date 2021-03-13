@@ -48,17 +48,6 @@ int file_exists(const char *filename)
   }
 }
 
-int file_exists2(const char *filename)
-{
-  FILE *file = fopen(filename, "r");
-  if (file != NULL)
-  {
-    fclose(file);
-    return TRUE;
-  }
-  return FALSE;
-}
-
 void insert_flaw(int node, int state)
 {
 
