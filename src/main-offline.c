@@ -654,7 +654,6 @@ void run_planner(int pref, char inputplan[])
   fflush(stdout);
 } // run_planner
 
-
 /* 
   Move filename1 to filename2 but strip down some useless stuff from filename1
  */
@@ -684,7 +683,7 @@ int modifyANDrename(char *filename1, char *filename2)
     {
       strncpy(tmp, &str[1], 5);
       tmp[5] = '\0';
-      if (strcmp(tmp, "dummy") != 0)  // SALTO PREDICATI DUMMY-FACT e DUMMY-TABUSTATE
+      if (strcmp(tmp, "dummy") != 0) // SALTO PREDICATI DUMMY-FACT e DUMMY-TABUSTATE
       {
         if (strstr(tmp, "not-unary") != NULL || // FIX CASO SPECIALE PER PIPESWORLD
             strstr(tmp, "not-") == NULL)        // SALTO PREDICATI NEGATI (derivanti ad es. dall'uso della tabu state)
@@ -745,7 +744,6 @@ void getFutureGoalsR(Node *n, int visited[], char *fgoals, int *fgoalscount)
   }
 }
 #endif
-
 
 /* Creates a graph from a file encoding
 
@@ -841,7 +839,7 @@ int create_graph(char *graph_filename)
   {
     memset(visitednodes, 0, numnode * sizeof(int));
     //visitednodes[i]=1;
-    getFutureGoalsR(&NodeVect[i], visitednodes, NodeVect[i].future_goals, &NodeVect[i].futuregoalcount);
+    getFutureGoalsR(&NodeVect[i], visitednodes, (char *)NodeVect[i].future_goals, &NodeVect[i].futuregoalcount);
   }
 #endif
 
@@ -849,7 +847,6 @@ int create_graph(char *graph_filename)
 
   return numnode; // return the number of nodes in the APP graph
 } // end create_graph
-
 
 /*
   Reset the graph data representation both:
@@ -922,8 +919,6 @@ int countNumActs(char *filename)
 
   return i - 1;
 }
-
-
 
 int diff(char *filename1, char *filename2)
 {
@@ -1401,7 +1396,7 @@ int main(int argc, char *argv[])
 
       if (numFlaw == 0)
       {
-        printf("SUCCESS\n\n");  // we are done, no flaws to fix!
+        printf("SUCCESS\n\n"); // we are done, no flaws to fix!
         return 0;
       }
 
@@ -1490,14 +1485,13 @@ int main(int argc, char *argv[])
           /* Creazione del file di dominio */
 #ifdef __NOPREF__
           pref_flag = FALSE;
-#ifndef __HPLANP__
           create_domain_file(NULL, predicatesFilename, actsFilename);
-#endif
 #else
           if (x2->numS > 0)
             pref_flag = TRUE;
           else
             pref_flag = FALSE;
+          create_domain_file(x2, predicatesFilename, actsFilename);
 #endif
 
           remove("soln");
