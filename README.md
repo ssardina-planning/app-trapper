@@ -4,33 +4,35 @@ This is the PP-LPG solver for APP adapted to include dead-end (i.e., traps) reas
 
 * Lukás Chrpa, Nir Lipovetzky, Sebastian Sardiña: [Handling non-local dead-ends in Agent Planning Programs](https://www.ijcai.org/Proceedings/2017/135). IJCAI 2017: 971-978
 
-To compile, get into `src/`, update the paths in `def.h` if needed, and then run:
+## Pre-requisites
 
-```bash
-$ cd src/
-$ make online
-$ make offline
-```
+Before running the solvers, make sure that:
 
-to buid the `pp-online` online solver and the various `pp-<solver>` offline solvers.
-
-Before running the solvers, first set it up as follows:
-
-1. The following binary tools should be available in `tools/`:
+1. The following binary tools are available in `tools/`:
    - `validate` binary, from the [VAL](https://github.com/KCL-Planning/VAL) project.
    - `trapper` binary, presented at ICAPS16 paper [_Traps, Invariants, and Dead-Ends_](https://www.aaai.org/ocs/index.php/ICAPS/ICAPS16/paper/view/13190).
    - `lpg` preference-based planner binary; check [here](https://lpg.unibs.it/).
 2. In any problem to solve, there must be a dummy empty file called `emptyplan.tmp` (its used is hard-coded in the solver).
      * Just create one doing:  `touch emptyplan.tmp`.
   
-Then, to run the **_online_** solvers:
+## Online solver
+
+To compile the online solver, get into `src/`, update the paths in `def.h` if needed, and then run:
 
 ```bash
-$ cd /path/to/problem
+$ cd src/
+$ make online
+```
+
+This will build the `pp-online` online solver and the various `pp-<solver>` offline solvers.
+
+To run the **_online_** solvers, get into the problem folder and run:
+
+```bash
 $ /path/to/src/pp-online <obj_file> <init_file> <predicate_file> <action_file> <graph_file> <seed> <planner_type>
 ```
 
-where `<planner_type>` could be one of the following ones:
+where `<planner_type>` could be one of the following:
 
 * `lmcut_trap`: uses trapper with LM-cut.
 * `lmcut_no_trap`: uses LM-cut without trapper.
@@ -38,7 +40,7 @@ where `<planner_type>` could be one of the following ones:
 * `dfs_no_trap`: uses DFS+ without trapper.
 * `lpg`: uses LPG without trapper
 
-When using trap reasoning, the tool used is `trapper`:
+When using trap reasoning, the tool used to extract dead-ends/traps is `trapper`.
 
 Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals 1 --plan soln.tmp
 
@@ -52,7 +54,26 @@ $ ../../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123
 $ ../../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 dsf_trap
 ```
 
-To run the **_offline_** solvers:
+## Offline solvers
+
+To compile the offline solver, get into `src/`, update the paths in `def.h` if needed, and then run:
+
+```bash
+$ cd src/
+$ make offline
+```
+
+This will build the varios `pp-<solver>` offline solvers:
+
+* `pp-lpg`: uses preference-based LPG without trapper. This is basically the original APP solver from the AIJ16 paper. Not integrated with trapper or LAPKT; so no reasoning on traps.
+* `pp-dfs_no_trap`: uses DFS+ from LAPKT but without trapper.
+* `pp-dfs_trap`: uses trapper with DFS+ from LAPKT.
+* `pp-lmcut_no_trap`: uses LM-cut from LAPKT but without trapper.
+* `pp-lmcut_trap`: uses trapper with LM-cut from LAPKT.
+
+**NOTE:** when a local planning step is performed to "close" the policy, LPG is used, as it is a preference-based planner. However, LPG is not integrated with trapper, so those planning episodes do not use any dead-end reasoning. So, in all the above cases, LPG is used in some transitions.
+
+To run the **_offline_** solvers, get into the problem folder and run:
 
 ```bash
 $ cd /path/to/problem
