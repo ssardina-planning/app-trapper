@@ -1,0 +1,829 @@
+$ ../../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 lpg
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 1692901013 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1546
+Number of conditional actions :       0
+Number of facts               :     114
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+Preprocessing total time: 0.02 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-SAW-MEDIUM B3 P0 SAW1 WALNUT SMOOTH S9 S8 S7) [D:1.00; C:1.00]
+ 1.0000: (DO-IMMERSION-VARNISH P0 IMMERSION-VARNISHER2 MAUVE SMOOTH) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 2
+     Plan file:       soln.tmp_1_1.SOL
+
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1546
+Number of conditional actions :       0
+Number of facts               :     114
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 0.0000: (DO-SAW-MEDIUM B3 P0 SAW1 WALNUT SMOOTH S9 S8 S7) [D:1.0000; C:1.0000]
+ 1.0000: (DO-IMMERSION-VARNISH P0 IMMERSION-VARNISHER2 MAUVE SMOOTH) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.02 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-SAW-MEDIUM B3 P0 SAW1 WALNUT SMOOTH S9 S8 S7) [D:1.00; C:1.00]
+ 1.0000: (DO-IMMERSION-VARNISH P0 IMMERSION-VARNISHER2 MAUVE SMOOTH) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 0
+
+Successful plans:
+Value: 0
+ emptyplan.tmp 
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 776550279 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1174
+Number of conditional actions :       0
+Number of facts               :      87
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+Preprocessing total time: 0.02 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-PLANE P1 PLANER1 ROUGH MAUVE GLAZED) [D:1.00; C:1.00]
+ 1.0000: (DO-IMMERSION-VARNISH P1 IMMERSION-VARNISHER2 MAUVE SMOOTH) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 2
+     Plan file:       soln.tmp_1_1.SOL
+
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1174
+Number of conditional actions :       0
+Number of facts               :      87
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 0.0000: (DO-PLANE P1 PLANER1 ROUGH MAUVE GLAZED) [D:1.0000; C:1.0000]
+ 1.0000: (DO-IMMERSION-VARNISH P1 IMMERSION-VARNISHER2 MAUVE SMOOTH) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.02 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-PLANE P1 PLANER1 ROUGH MAUVE GLAZED) [D:1.00; C:1.00]
+ 1.0000: (DO-IMMERSION-VARNISH P1 IMMERSION-VARNISHER2 MAUVE SMOOTH) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 807385195 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1126
+Number of conditional actions :       0
+Number of facts               :      86
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+Preprocessing total time: 0.01 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-PLANE P1 PLANER1 SMOOTH MAUVE VARNISHED) [D:1.00; C:1.00]
+ 1.0000: (DO-SPRAY-VARNISH P1 SPRAY-VARNISHER1 WHITE SMOOTH) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.01
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 3
+     Plan file:       soln.tmp_1_1.SOL
+
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1126
+Number of conditional actions :       0
+Number of facts               :      86
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 0.0000: (DO-PLANE P1 PLANER1 SMOOTH MAUVE VARNISHED) [D:1.0000; C:1.0000]
+ 1.0000: (DO-SPRAY-VARNISH P1 SPRAY-VARNISHER1 WHITE SMOOTH) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.01 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.01 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-PLANE P1 PLANER1 SMOOTH MAUVE VARNISHED) [D:1.00; C:1.00]
+ 1.0000: (DO-SPRAY-VARNISH P1 SPRAY-VARNISHER1 WHITE SMOOTH) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.01
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 95168426 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1126
+Number of conditional actions :       0
+Number of facts               :      86
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+Preprocessing total time: 0.01 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-SAW-LARGE B3 P2 SAW2 WALNUT SMOOTH S7 S5 S6 S4) [D:1.00; C:1.00]
+ 1.0000: (DO-SPRAY-VARNISH P2 SPRAY-VARNISHER1 WHITE SMOOTH) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.01
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 2
+     Plan file:       soln.tmp_1_1.SOL
+
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1126
+Number of conditional actions :       0
+Number of facts               :      86
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 0.0000: (DO-SAW-LARGE B3 P2 SAW2 WALNUT SMOOTH S7 S5 S6 S4) [D:1.0000; C:1.0000]
+ 1.0000: (DO-SPRAY-VARNISH P2 SPRAY-VARNISHER1 WHITE SMOOTH) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.01 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-SAW-LARGE B3 P2 SAW2 WALNUT SMOOTH S7 S5 S6 S4) [D:1.00; C:1.00]
+ 1.0000: (DO-SPRAY-VARNISH P2 SPRAY-VARNISHER1 WHITE SMOOTH) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.01
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 1353699824 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1000
+Number of conditional actions :       0
+Number of facts               :      80
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+Preprocessing total time: 0.01 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.01 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-PLANE P2 PLANER2 SMOOTH WHITE VARNISHED) [D:1.00; C:1.00]
+ 1.0000: (DO-GLAZE P2 GLAZER1 WHITE) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.01
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 2
+     Plan file:       soln.tmp_1_1.SOL
+
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1000
+Number of conditional actions :       0
+Number of facts               :      80
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 0.0000: (DO-PLANE P2 PLANER2 SMOOTH WHITE VARNISHED) [D:1.0000; C:1.0000]
+ 1.0000: (DO-GLAZE P2 GLAZER1 WHITE) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.01 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.01 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-PLANE P2 PLANER2 SMOOTH WHITE VARNISHED) [D:1.00; C:1.00]
+ 1.0000: (DO-GLAZE P2 GLAZER1 WHITE) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.01
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 686611921 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1000
+Number of conditional actions :       0
+Number of facts               :      80
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+Preprocessing total time: 0.01 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.01 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-SAW-LARGE B3 P3 SAW2 WALNUT SMOOTH S9 S7 S8 S6) [D:1.00; C:1.00]
+ 1.0000: (DO-GLAZE P3 GLAZER2 BLUE) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.01
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 5
+     Plan file:       soln.tmp_1_1.SOL
+
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1000
+Number of conditional actions :       0
+Number of facts               :      80
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 0.0000: (DO-SAW-LARGE B3 P3 SAW2 WALNUT SMOOTH S9 S7 S8 S6) [D:1.0000; C:1.0000]
+ 1.0000: (DO-GLAZE P3 GLAZER2 BLUE) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.01 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-SAW-LARGE B3 P3 SAW2 WALNUT SMOOTH S9 S7 S8 S6) [D:1.00; C:1.00]
+ 1.0000: (DO-GLAZE P3 GLAZER2 BLUE) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.01
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 912905316 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+
+LPG: create_final_goal_state(): goal can be simplified to FALSE.
+    No plan will solve it
+
+Checking plan: soln.tmp
+Bad plan file!
+
+
+Failed plans:
+ soln.tmp 
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 1692901013 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 776550279 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 807385195 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 95168426 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 1353699824 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 686611921 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed 912905316 -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects
+
+FAIL
+real 1.44
+user 0.54
+sys 0.90

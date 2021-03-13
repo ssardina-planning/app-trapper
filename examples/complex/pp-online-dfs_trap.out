@@ -1,0 +1,1505 @@
+$ ../../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 dfs_trap
+
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+ --- OK.
+ Match tree built with 1522 nodes.
+
+PDDL problem description loaded: 
+	Domain: WOODWORKING
+	Problem: WOOD-PROB
+	#Actions: 1522
+	#Fluents: 114
+Time to initialize h^2: 0.002456 secs
+Time to evaluate h^2: 0.039467 secs
+h^2 value = 3.40282e+38
+A1 Candidates: 16
+A2 Candidates: 572
+A3 Candidates: 16
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.043342
+in/out nodes generated! Time: 0.156199
+Sinks computed! Time: 0.000681996
+Propagating the sink nodes! Time: 0.00398901
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 572
+     Sinks: 562
+Trap Valid: 1
+
+A1 Candidates: 17
+A2 Candidates: 92
+A3 Candidates: 17
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.00630701
+in/out nodes generated! Time: 0.00847998
+Sinks computed! Time: 4.8995e-05
+Propagating the sink nodes! Time: 0.000196993
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 92
+     Sinks: 76
+Trap Valid: 1
+
+A1 Candidates: 15
+A2 Candidates: 497
+A3 Candidates: 15
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.03745
+in/out nodes generated! Time: 0.084479
+Sinks computed! Time: 0.000348002
+Propagating the sink nodes! Time: 0.00235099
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 497
+     Sinks: 487
+Trap Valid: 1
+
+A1 Candidates: 16
+A2 Candidates: 594
+A3 Candidates: 16
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.045047
+in/out nodes generated! Time: 0.10566
+Sinks computed! Time: 0.000292957
+Propagating the sink nodes! Time: 0.00279796
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 594
+     Sinks: 584
+Trap Valid: 1
+
+A1 Candidates: 16
+A2 Candidates: 586
+A3 Candidates: 16
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.04842
+in/out nodes generated! Time: 0.192661
+Sinks computed! Time: 0.000848949
+Propagating the sink nodes! Time: 0.00409001
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 586
+     Sinks: 576
+Trap Valid: 1
+
+A1 Candidates: 15
+A2 Candidates: 488
+A3 Candidates: 15
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.040228
+in/out nodes generated! Time: 0.149305
+Sinks computed! Time: 0.0011
+Propagating the sink nodes! Time: 0.00353992
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 488
+     Sinks: 478
+Trap Valid: 1
+
+A1 Candidates: 16
+A2 Candidates: 586
+A3 Candidates: 16
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.0469221
+in/out nodes generated! Time: 0.190089
+Sinks computed! Time: 0.000819921
+Propagating the sink nodes! Time: 0.004089
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 586
+     Sinks: 576
+Trap Valid: 1
+
+A1 Candidates: 12
+A2 Candidates: 101
+A3 Candidates: 12
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.00815094
+in/out nodes generated! Time: 0.010326
+Sinks computed! Time: 7.10487e-05
+Propagating the sink nodes! Time: 0.000305891
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 101
+     Sinks: 90
+Trap Valid: 1
+
+A1 Candidates: 16
+A2 Candidates: 586
+A3 Candidates: 16
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.04344
+in/out nodes generated! Time: 0.198154
+Sinks computed! Time: 0.00116897
+Propagating the sink nodes! Time: 0.00597703
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 586
+     Sinks: 576
+Trap Valid: 1
+
+A1 Candidates: 12
+A2 Candidates: 101
+A3 Candidates: 12
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.010697
+in/out nodes generated! Time: 0.013298
+Sinks computed! Time: 8.2016e-05
+Propagating the sink nodes! Time: 0.000170946
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 101
+     Sinks: 90
+Trap Valid: 1
+
+A1 Candidates: 16
+A2 Candidates: 586
+A3 Candidates: 16
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.0453039
+in/out nodes generated! Time: 0.190145
+Sinks computed! Time: 0.000841975
+Propagating the sink nodes! Time: 0.00398195
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 586
+     Sinks: 576
+Trap Valid: 1
+
+A1 Candidates: 15
+A2 Candidates: 488
+A3 Candidates: 15
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.040644
+in/out nodes generated! Time: 0.148073
+Sinks computed! Time: 0.000856996
+Propagating the sink nodes! Time: 0.00346291
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 488
+     Sinks: 478
+Trap Valid: 1
+
+A1 Candidates: 16
+A2 Candidates: 588
+A3 Candidates: 16
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.045622
+in/out nodes generated! Time: 0.200819
+Sinks computed! Time: 0.000991106
+Propagating the sink nodes! Time: 0.00473881
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 588
+     Sinks: 578
+Trap Valid: 1
+
+A1 Candidates: 16
+A2 Candidates: 586
+A3 Candidates: 16
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.0447869
+in/out nodes generated! Time: 0.178932
+Sinks computed! Time: 0.00103807
+Propagating the sink nodes! Time: 0.00413108
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 586
+     Sinks: 576
+Trap Valid: 1
+
+A1 Candidates: 12
+A2 Candidates: 101
+A3 Candidates: 12
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.00854707
+in/out nodes generated! Time: 0.0112309
+Sinks computed! Time: 4.81606e-05
+Propagating the sink nodes! Time: 0.000252008
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 101
+     Sinks: 90
+Trap Valid: 1
+
+A1 Candidates: 15
+A2 Candidates: 497
+A3 Candidates: 15
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.039053
+in/out nodes generated! Time: 0.085844
+Sinks computed! Time: 0.000350952
+Propagating the sink nodes! Time: 0.0023818
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 497
+     Sinks: 487
+Trap Valid: 1
+
+A1 Candidates: 14
+A2 Candidates: 400
+A3 Candidates: 14
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.031626
+in/out nodes generated! Time: 0.065666
+Sinks computed! Time: 0.000300884
+Propagating the sink nodes! Time: 0.00169611
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 400
+     Sinks: 390
+Trap Valid: 1
+
+A1 Candidates: 16
+A2 Candidates: 594
+A3 Candidates: 16
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.0439949
+in/out nodes generated! Time: 0.111183
+Sinks computed! Time: 0.000412941
+Propagating the sink nodes! Time: 0.00281906
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 594
+     Sinks: 584
+Trap Valid: 1
+
+Size: 189
+[ 
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (WOOD P0 TEAK) }
+ { (BOARDSIZE B0 S8) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S3) }
+ { (BOARDSIZE B0 S2) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B0 S5) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B1 S0) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (WOOD P3 TEAK) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (WOOD P3 WALNUT) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (WOOD P2 TEAK) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+ { (BOARDSIZE B2 S7) }
+ { (BOARDSIZE B0 S6) }
+ { (BOARDSIZE B3 S5) }
+ { (BOARDSIZE B1 S1) }
+ { (BOARDSIZE B2 S1) }
+ { (BOARDSIZE B4 S1) }
+ { (BOARDSIZE B0 S0) }
+ { (BOARDSIZE B2 S4) }
+ { (BOARDSIZE B0 S3) }
+ { (BOARDSIZE B3 S2) }
+]
+Goal 0 - (COLOUR P0 MAUVE)
+Future Goals size:18
+Goals size:1
+Serializing #Goals: 1
+Starting search with DFS...
+rel_plan size: 2
+#RP_fluents 8
+{1/1/0}:IW(1) -> [2][3]Plan found with cost: 2
+Time: 0.000567913
+Generated: 25
+Expanded: 2
+Total time: 0.000576931
+Traps comuted offline: 0
+Traps comuted online: 0
+PSC Trapped deadends: 27
+H2 Trapped deadends: 0
+H1 Trapped deadends: 0
+Nodes generated during search: 25
+Nodes expanded during search: 2
+DFS+ search completed in 0.000576931 secs, check 'de.log' for details
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1546
+Number of conditional actions :       0
+Number of facts               :     114
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 1.0000: (DO-SAW-MEDIUM B2 P0 SAW2 WALNUT ROUGH S11 S10 S9) [D:1.0000; C:1.0000]
+ 2.0000: (DO-GLAZE P0 GLAZER0 MAUVE) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.01 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-SAW-MEDIUM B2 P0 SAW2 WALNUT ROUGH S11 S10 S9) [D:1.00; C:1.00]
+ 1.0000: (DO-GLAZE P0 GLAZER0 MAUVE) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.01
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 0
+
+Successful plans:
+Value: 0
+ emptyplan.tmp 
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 0
+
+Successful plans:
+Value: 0
+ emptyplan.tmp 
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+ --- OK.
+ Match tree built with 1210 nodes.
+
+PDDL problem description loaded: 
+	Domain: WOODWORKING
+	Problem: WOOD-PROB
+	#Actions: 1210
+	#Fluents: 89
+Time to initialize h^2: 0.002237 secs
+Time to evaluate h^2: 0.018513 secs
+h^2 value = 3.40282e+38
+A1 Candidates: 6
+A2 Candidates: 494
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.031337
+in/out nodes generated! Time: 0.081123
+Sinks computed! Time: 0.000316992
+Propagating the sink nodes! Time: 0.00192
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 494
+     Sinks: 494
+Trap Valid: 1
+
+A1 Candidates: 6
+A2 Candidates: 486
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.032021
+in/out nodes generated! Time: 0.124099
+Sinks computed! Time: 0.000639021
+Propagating the sink nodes! Time: 0.00287998
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 486
+     Sinks: 486
+Trap Valid: 1
+
+A1 Candidates: 5
+A2 Candidates: 403
+A3 Candidates: 5
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.026736
+in/out nodes generated! Time: 0.097359
+Sinks computed! Time: 0.00060901
+Propagating the sink nodes! Time: 0.002417
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 403
+     Sinks: 403
+Trap Valid: 1
+
+A1 Candidates: 6
+A2 Candidates: 486
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.031266
+in/out nodes generated! Time: 0.136726
+Sinks computed! Time: 0.000572979
+Propagating the sink nodes! Time: 0.00320697
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 486
+     Sinks: 486
+Trap Valid: 1
+
+A1 Candidates: 2
+A2 Candidates: 76
+A3 Candidates: 2
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.00577301
+in/out nodes generated! Time: 0.008753
+Sinks computed! Time: 5.0962e-05
+Propagating the sink nodes! Time: 0.000155985
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 76
+     Sinks: 75
+Trap Valid: 1
+
+A1 Candidates: 6
+A2 Candidates: 486
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.042953
+in/out nodes generated! Time: 0.153555
+Sinks computed! Time: 0.000558019
+Propagating the sink nodes! Time: 0.00292397
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 486
+     Sinks: 486
+Trap Valid: 1
+
+A1 Candidates: 2
+A2 Candidates: 76
+A3 Candidates: 2
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.00491804
+in/out nodes generated! Time: 0.00625896
+Sinks computed! Time: 9.10163e-05
+Propagating the sink nodes! Time: 0.000169992
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 76
+     Sinks: 75
+Trap Valid: 1
+
+A1 Candidates: 6
+A2 Candidates: 486
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.033291
+in/out nodes generated! Time: 0.155471
+Sinks computed! Time: 0.000599027
+Propagating the sink nodes! Time: 0.0033139
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 486
+     Sinks: 486
+Trap Valid: 1
+
+A1 Candidates: 5
+A2 Candidates: 403
+A3 Candidates: 5
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.031402
+in/out nodes generated! Time: 0.102599
+Sinks computed! Time: 0.000506997
+Propagating the sink nodes! Time: 0.00242603
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 403
+     Sinks: 403
+Trap Valid: 1
+
+A1 Candidates: 6
+A2 Candidates: 488
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.034735
+in/out nodes generated! Time: 0.131513
+Sinks computed! Time: 0.000944972
+Propagating the sink nodes! Time: 0.00381899
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 488
+     Sinks: 488
+Trap Valid: 1
+
+A1 Candidates: 6
+A2 Candidates: 486
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.033285
+in/out nodes generated! Time: 0.1247
+Sinks computed! Time: 0.000687003
+Propagating the sink nodes! Time: 0.002859
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 486
+     Sinks: 486
+Trap Valid: 1
+
+A1 Candidates: 2
+A2 Candidates: 76
+A3 Candidates: 2
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.00493503
+in/out nodes generated! Time: 0.00562596
+Sinks computed! Time: 4.80413e-05
+Propagating the sink nodes! Time: 0.00018096
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 76
+     Sinks: 75
+Trap Valid: 1
+
+Size: 3
+[ 
+ { (WOOD P3 TEAK) }
+ { (WOOD P3 WALNUT) }
+ { (WOOD P2 TEAK) }
+]
+Goal 0 - (COLOUR P1 BLUE)
+Future Goals size:12
+Goals size:1
+Serializing #Goals: 1
+Starting search with DFS...
+rel_plan size: 2
+#RP_fluents 5
+{1/1/0}:IW(1) -> [2][3]Plan found with cost: 2
+Time: 0.00089705
+Generated: 38
+Expanded: 7
+Total time: 0.000908047
+Traps comuted offline: 0
+Traps comuted online: 0
+PSC Trapped deadends: 129
+H2 Trapped deadends: 0
+H1 Trapped deadends: 0
+Nodes generated during search: 38
+Nodes expanded during search: 7
+DFS+ search completed in 0.000908047 secs, check 'de.log' for details
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1234
+Number of conditional actions :       0
+Number of facts               :      89
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 1.0000: (DO-PLANE P1 PLANER2 ROUGH MAUVE GLAZED) [D:1.0000; C:1.0000]
+ 2.0000: (DO-SPRAY-VARNISH P1 SPRAY-VARNISHER2 BLUE SMOOTH) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.00 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.00 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-PLANE P1 PLANER2 ROUGH MAUVE GLAZED) [D:1.00; C:1.00]
+ 1.0000: (DO-SPRAY-VARNISH P1 SPRAY-VARNISHER2 BLUE SMOOTH) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.00
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+ --- OK.
+ Match tree built with 1162 nodes.
+
+PDDL problem description loaded: 
+	Domain: WOODWORKING
+	Problem: WOOD-PROB
+	#Actions: 1162
+	#Fluents: 88
+Time to initialize h^2: 0.002166 secs
+Time to evaluate h^2: 0.023489 secs
+h^2 value = 3.40282e+38
+A1 Candidates: 6
+A2 Candidates: 480
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.028982
+in/out nodes generated! Time: 0.125557
+Sinks computed! Time: 0.000501007
+Propagating the sink nodes! Time: 0.002748
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 480
+     Sinks: 480
+Trap Valid: 1
+
+A1 Candidates: 5
+A2 Candidates: 398
+A3 Candidates: 5
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.024945
+in/out nodes generated! Time: 0.097032
+Sinks computed! Time: 0.000575006
+Propagating the sink nodes! Time: 0.00256601
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 398
+     Sinks: 398
+Trap Valid: 1
+
+A1 Candidates: 6
+A2 Candidates: 480
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.028849
+in/out nodes generated! Time: 0.126209
+Sinks computed! Time: 0.00059101
+Propagating the sink nodes! Time: 0.00291902
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 480
+     Sinks: 480
+Trap Valid: 1
+
+A1 Candidates: 2
+A2 Candidates: 75
+A3 Candidates: 2
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.00472999
+in/out nodes generated! Time: 0.006787
+Sinks computed! Time: 5.50151e-05
+Propagating the sink nodes! Time: 0.000147015
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 75
+     Sinks: 74
+Trap Valid: 1
+
+A1 Candidates: 6
+A2 Candidates: 480
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.030417
+in/out nodes generated! Time: 0.120455
+Sinks computed! Time: 0.000597
+Propagating the sink nodes! Time: 0.00293595
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 480
+     Sinks: 480
+Trap Valid: 1
+
+A1 Candidates: 2
+A2 Candidates: 75
+A3 Candidates: 2
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.00471401
+in/out nodes generated! Time: 0.00725901
+Sinks computed! Time: 9.09567e-05
+Propagating the sink nodes! Time: 0.000138998
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 75
+     Sinks: 74
+Trap Valid: 1
+
+A1 Candidates: 6
+A2 Candidates: 480
+A3 Candidates: 6
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.030245
+in/out nodes generated! Time: 0.118959
+Sinks computed! Time: 0.000609994
+Propagating the sink nodes! Time: 0.00277197
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 480
+     Sinks: 480
+Trap Valid: 1
+
+A1 Candidates: 5
+A2 Candidates: 398
+A3 Candidates: 5
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.024949
+in/out nodes generated! Time: 0.108999
+Sinks computed! Time: 0.000441015
+Propagating the sink nodes! Time: 0.00242096
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 398
+     Sinks: 398
+Trap Valid: 1
+
+Size: 2
+[ 
+ { (WOOD P3 TEAK) }
+ { (WOOD P3 WALNUT) }
+]
+Goal 0 - (COLOUR P2 WHITE)
+Future Goals size:8
+Goals size:1
+Serializing #Goals: 1
+Starting search with DFS...
+rel_plan size: 2
+#RP_fluents 8
+{1/1/0}:IW(1) -> [2][3]Plan found with cost: 2
+Time: 0.00051403
+Generated: 37
+Expanded: 4
+Total time: 0.000521975
+Traps comuted offline: 0
+Traps comuted online: 0
+PSC Trapped deadends: 54
+H2 Trapped deadends: 0
+H1 Trapped deadends: 0
+Nodes generated during search: 37
+Nodes expanded during search: 4
+DFS+ search completed in 0.000521975 secs, check 'de.log' for details
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1186
+Number of conditional actions :       0
+Number of facts               :      88
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 1.0000: (DO-SAW-LARGE B2 P2 SAW2 WALNUT ROUGH S11 S9 S10 S8) [D:1.0000; C:1.0000]
+ 2.0000: (DO-GLAZE P2 GLAZER1 WHITE) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.02 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.02 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-SAW-LARGE B2 P2 SAW2 WALNUT ROUGH S11 S9 S10 S8) [D:1.00; C:1.00]
+ 1.0000: (DO-GLAZE P2 GLAZER1 WHITE) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.02
+Search time:     0.00
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 0
+
+Successful plans:
+Value: 0
+ emptyplan.tmp 
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+
+Failed plans:
+ emptyplan.tmp 
+ --- OK.
+ Match tree built with 1078 nodes.
+
+PDDL problem description loaded: 
+	Domain: WOODWORKING
+	Problem: WOOD-PROB
+	#Actions: 1078
+	#Fluents: 83
+Time to initialize h^2: 0.001302 secs
+Time to evaluate h^2: 0.010053 secs
+h^2 value = 2
+A1 Candidates: 13
+A2 Candidates: 409
+A3 Candidates: 13
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.021957
+in/out nodes generated! Time: 0.075034
+Sinks computed! Time: 0.000496998
+Propagating the sink nodes! Time: 0.001679
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 409
+     Sinks: 402
+Trap Valid: 1
+
+A1 Candidates: 13
+A2 Candidates: 68
+A3 Candidates: 13
+--> Trying to build the MEGA TRAP!!!
+Generating the graph...
+Data Structures generated! Time: 0.00310199
+in/out nodes generated! Time: 0.002941
+Sinks computed! Time: 3.69996e-05
+Propagating the sink nodes! Time: 5.59986e-05
+Building the resulting mega trap...
+Done!
+
+Final trap:
+
+ -{ MegaTrap }-
+
+Candidates: 68
+     Sinks: 56
+Trap Valid: 1
+
+Size: 19
+[ 
+ { (BOARDSIZE B0 S4) }
+ { (BOARDSIZE B2 S3) }
+ { (BOARDSIZE B3 S3) }
+ { (BOARDSIZE B2 S2) }
+ { (BOARDSIZE B0 S1) }
+ { (BOARDSIZE B2 S0) }
+ { (BOARDSIZE B3 S0) }
+ { (WOOD P3 WALNUT) }
+ { (BOARDSIZE B2 S6) }
+ { (BOARDSIZE B3 S6) }
+ { (BOARDSIZE B2 S5) }
+ { (BOARDSIZE B0 S4) }
+ { (BOARDSIZE B2 S3) }
+ { (BOARDSIZE B3 S3) }
+ { (BOARDSIZE B2 S2) }
+ { (BOARDSIZE B4 S2) }
+ { (BOARDSIZE B0 S1) }
+ { (BOARDSIZE B2 S0) }
+ { (BOARDSIZE B3 S0) }
+]
+Goal 0 - (COLOUR P3 BLUE)
+Future Goals size:2
+Goals size:1
+Serializing #Goals: 1
+Starting search with DFS...
+rel_plan size: 2
+#RP_fluents 7
+{1/1/0}:IW(1) -> [2][3]Plan found with cost: 2
+Time: 0.000493988
+Generated: 31
+Expanded: 4
+Total time: 0.000504006
+Traps comuted offline: 0
+Traps comuted online: 0
+PSC Trapped deadends: 45
+H2 Trapped deadends: 0
+H1 Trapped deadends: 0
+Nodes generated during search: 31
+Nodes expanded during search: 4
+DFS+ search completed in 0.000504006 secs, check 'de.log' for details
+Checking plan: soln.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 2
+
+Successful plans:
+Value: 2
+ soln.tmp 
+
+
+
+NUMERIC_THREATS_MODE: 0
+
+; Command line: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed 1234 -same_objects   
+
+
+Parsing domain file:  domain 'WOODWORKING' defined ... done.
+Parsing problem file:  problem 'WOOD-PROB' defined ... done.
+
+
+
+Modality: Incremental Planner
+
+Number of actions             :    1102
+Number of conditional actions :       0
+Number of facts               :      83
+
+
+Analyzing Planning Problem:
+	Temporal Planning Problem: NO
+	Numeric Planning Problem: NO
+	Problem with Timed Initial Literals: NO
+	Problem with Derived Predicates: NO
+
+Evaluation function weights:
+     Action duration 0.00; Action cost 1.00
+
+
+Computing mutex... done
+
+ Load input plan:
+
+
+ 1.0000: (DO-SAW-LARGE B0 P3 SAW2 TEAK ROUGH S10 S8 S9 S7) [D:1.0000; C:1.0000]
+ 2.0000: (DO-GLAZE P3 GLAZER2 BLUE) [D:1.0000; C:1.0000]
+
+
+Preprocessing total time: 0.00 seconds
+
+Searching ('.' = every 50 search steps):
+ solution found: 
+ first_solution_cpu_time: 0.01 
+
+Plan computed:
+   Time: (ACTION) [action Duration; action Cost]
+ 0.0000: (DO-SAW-LARGE B0 P3 SAW2 TEAK ROUGH S10 S8 S9 S7) [D:1.00; C:1.00]
+ 1.0000: (DO-GLAZE P3 GLAZER2 BLUE) [D:1.00; C:1.00]
+
+
+Solution number: 1
+Total time:      0.01
+Search time:     0.01
+Actions:         2
+Duration:        2.000
+Plan quality:    2.000 
+Total Num Flips: 1
+Distance from input plan: 0 
+     Plan file:       plan_pfile.pddl_1.SOL
+
+Checking plan: emptyplan.tmp
+Plan executed successfully - checking goal
+Plan valid
+Final value: 0
+
+Successful plans:
+Value: 0
+ emptyplan.tmp 
+
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals 1 --plan soln.tmp
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals 1 --plan soln.tmp
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals 1 --plan soln.tmp
+Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals 1 --plan soln.tmp
+
+SUCCESS
+real 6.29
+user 5.54
+sys 0.73
