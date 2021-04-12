@@ -9,12 +9,11 @@ This is the PP-LPG solver for APP adapted to include dead-end (i.e., traps) reas
 Before running the solvers, make sure that:
 
 1. The following binary tools are available in `tools/`:
-   - `validate` binary, from the [VAL](https://github.com/KCL-Planning/VAL) project.
-   - `trapper` binary, presented at ICAPS16 paper [_Traps, Invariants, and Dead-Ends_](https://www.aaai.org/ocs/index.php/ICAPS/ICAPS16/paper/view/13190).
-   - `lpg` preference-based planner binary; check [here](https://lpg.unibs.it/).
-2. In any problem to solve, there must be a dummy empty file called `emptyplan.tmp` (its used is hard-coded in the solver).
-     * Just create one doing:  `touch emptyplan.tmp`.
-  
+   * `validate` binary, from the [VAL](https://github.com/KCL-Planning/VAL) project.
+   * `trapper` binary form the [trapper-lapkt repo](https://github.com/nirlipo/trapper-lapkt), presented at ICAPS16 paper [_Traps, Invariants, and Dead-Ends_](https://www.aaai.org/ocs/index.php/ICAPS/ICAPS16/paper/view/13190). 
+   * `lpg` preference-based planner binary. This is a modified version of the original [LPG]((https://lpg.unibs.it/)) planner that leaves the final state of the solution plan in file `endstate.txt` and the solution plan is always written a file called `soln` (instead of using the domain name and `.SOL` extension).
+1. In any problem to solve, there must be a dummy empty file called `emptyplan.tmp` (its used is hard-coded in the solver).
+   * Just create one doing:  `touch emptyplan.tmp`.
 ## Online solver
 
 To compile the online solver, get into `src/`, update the paths in `def.h` if needed, and then run:
@@ -28,7 +27,7 @@ This will build the `pp-online` online solver and the various `pp-<solver>` offl
 
 To run the **_online_** solvers, get into the problem folder and run:
 
-```bash
+```shell
 $ /path/to/src/pp-online <obj_file> <init_file> <predicate_file> <action_file> <graph_file> <seed> <planner_type>
 ```
 
@@ -40,13 +39,17 @@ where `<planner_type>` could be one of the following:
 * `dfs_no_trap`: uses DFS+ without trapper.
 * `lpg`: uses LPG without trapper
 
-When using trap reasoning, the tool used to extract dead-ends/traps is `trapper`.
+When using trap reasoning, the tool used to extract dead-ends/traps is `trapper`, available in the [trapper-lapkt repo](https://github.com/nirlipo/trapper-lapkt).
 
-Running trapper as follows: /home/ssardina/git/soft/planning/app/app-trapper.git/tools/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals 1 --plan soln.tmp
+Running trapper as follows: 
 
-For example, this will run the online solver using on the complex example using the LPG planner with no traps (which will fail) and the DFS+ planner with trap reasoning (which will succeed):
+```shell
+$ tools/trapper --domain domain.pddl --problem pfile-trap.pddl --search dfs+_trap --candidates a2 --goals 1 --plan soln.tmp
+```
 
-```bash
+For example, this will run the online solver using on the complex example using the LPG planner with no traps (which will fail) and the DFS+ planner _with trap reasoning_ (which will succeed):
+
+```shell
 $ cd examples/complex
 
 $ ../../src/pp-online obj.pddl init.pddl predicates.pddl acts.pddl graph.txt 123 lpg
