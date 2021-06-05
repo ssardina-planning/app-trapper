@@ -560,7 +560,7 @@ void run_planner(int pref, char inputplan[])
   seed++; // increment the seed to get a different plan hopefully
 
   // Workaround for empty plans
-  printf("Trying empty plan..\n");
+  printf("Trying empty plan first (just in case)...\n");
   snprintf(cmd_exec, MAX_STR_LEN, COMMAND_VAL_EMPTYPLAN, __TOOLDIR__);
   int x = system(cmd_exec);
   if (x == 0)
@@ -707,12 +707,12 @@ void define_initial_state(char **argv)
 #ifndef __HPLANP__
   create_domain_file(NULL, argv[3], argv[4]);
 #endif
-  run_planner(FALSE, NULL);
+  run_planner(FALSE, NULL); 
 
-  // We need this file - create a dummy one with endstate.txt
+  // This is produced by LPG after a plan is "run"
   if (file_exists("endstate.txt") == FALSE)
   {
-    printf("Warning: endstate.txt doesn't exist! Create a dummy one with endstate.txt \n\n");
+    printf("Warning: endstate.txt doesn't exist and it should! \n\n");
     exit(1);
   }
 
@@ -1358,7 +1358,7 @@ void print_flaws()
 int main(int argc, char *argv[])
 {
 
-  int indStep, indRestart, x, i, j, k, l, m, flawState, fail, bestState;
+  int indStep, indRestart, j, k, l, m, flawState, fail, bestState;
   Flaw f;
   Node *x1, *x2;
   Edge *e;
@@ -1383,7 +1383,7 @@ int main(int argc, char *argv[])
   for (indRestart = 0; indRestart < MAX_NUM_RESTART; indRestart++)
   {
 
-    printf("\n\nPP:RESTART %d", i);
+    printf("\n\nPP:RESTART %d", indRestart);
 
     // reset all data
     reset_graph();
