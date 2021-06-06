@@ -1,0 +1,7 @@
+soln
+emptyplan.tmp
+N*
+*.soln
+pfile*.pddl
+endstate.txt
+*.tabu

@@ -1,6 +1,0 @@
-(clear a)
-(handempty )
-(on a b)
-(on b c)
-(on c d)
-(ontable d)
