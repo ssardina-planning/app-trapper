@@ -30,12 +30,12 @@
 
 /**************** COMMAND LINES ****************/
 #ifdef __SMALL__
-#define COMMAND_LPG_1SOL "%s/lpg -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed %d -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
+#define COMMAND_LPG_1SOL "%s/lpg-app -f pfile.pddl -o domain.pddl -out soln.tmp -n 1 -seed %d -cputime 60 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
 
-#define COMMAND_LPG_2SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
+#define COMMAND_LPG_2SOL "%s/lpg-app -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -nobestfirst -inst_with_contraddicting_objects -same_objects" // -inst_with_contraddicting_objects PER BARMAN
 
-#define COMMAND_LPG_1SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 60 -input_plan %s"
-#define COMMAND_LPG_2SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -input_plan %s"
+#define COMMAND_LPG_1SOL_REPLAN "%s/lpg-app -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 60 -input_plan %s"
+#define COMMAND_LPG_2SOL_REPLAN "%s/lpg-app -f pfile.pddl -o domain.pddl -n 2 -cputime 60 -extratime 1 -seed %d -wcost 20 -input_plan %s"
 
 #define COMMAND_LMCUT "%s/trapper --domain domain.pddl --problem pfile.pddl --search astar_trap --plan soln.tmp"
 #define COMMAND_DFS "%s/trapper --domain domain.pddl --problem pfile.pddl --search dfs+_trap --plan soln.tmp"
@@ -51,15 +51,15 @@
 
 #else // PROOBLEMI DI GRANDI DIMENSIONI
 
-#define COMMAND_LPG_1SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -numtry 1500 -lowmemory"
-#define COMMAND_LPG_2SOL "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -numtry 1500 -lowmemory"
-#define COMMAND_LPG_1SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -input_plan %s -numtry 1500 -lowmemory"
-#define COMMAND_LPG_2SOL_REPLAN "%s/lpg -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -input_plan %s -numtry 1500 -lowmemory"
+#define COMMAND_LPG_1SOL "%s/lpg-app -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -numtry 1500 -lowmemory"
+#define COMMAND_LPG_2SOL "%s/lpg-app -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -numtry 1500 -lowmemory"
+#define COMMAND_LPG_1SOL_REPLAN "%s/lpg-app -f pfile.pddl -o domain.pddl -n 1 -seed %d -cputime 600 -input_plan %s -numtry 1500 -lowmemory"
+#define COMMAND_LPG_2SOL_REPLAN "%s/lpg-app -f pfile.pddl -o domain.pddl -n 2 -cputime 600 -extratime 2 -seed %d -wcost 20 -input_plan %s -numtry 1500 -lowmemory"
 #endif
 
 #define COMMAND_RELAXED "%s/ff -f pfile.pddl -o domainRelaxed.pddl"
-#define COMMAND_LPG_INPUTSOL "%s/lpg -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed %d -same_objects"
-#define COMMAND_LPG_INPUTSOL_FROM_HPLANP "lpg -f pfile.pddl -o domainHPlanP.pddl -n 1 -input_plan soln.tmp -seed %d -same_objects"
+#define COMMAND_LPG_INPUTSOL "%s/lpg-app -f pfile.pddl -o domain.pddl -n 1 -input_plan soln.tmp -seed %d -same_objects"
+#define COMMAND_LPG_INPUTSOL_FROM_HPLANP "%s/lpg-app -f pfile.pddl -o domainHPlanP.pddl -n 1 -input_plan soln.tmp -seed %d -same_objects"
 
 /*********************************************/
 
