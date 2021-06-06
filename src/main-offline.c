@@ -463,16 +463,13 @@ void create_domain_file(Node *n, char *predicatesFilename, char *actsFilename)
       fprintf(out, "%s", str);
   }
 
-  fprintf(out, "(:action pref-op0\n  :precondition (and (dummy-fact))\n  :effect (and (not (dummy-fact)) (dummy-goal)))");
+  // Add this special operator to get the dummy-goal
+  fprintf(out, "(:action pref-op0\n");
+  fprintf(out,":precondition (and (dummy-fact))\n");
+  fprintf(out,":effect (and (not (dummy-fact)) (dummy-goal)))\n\n");
 
   if (n != NULL)
   {
-    /*
-    fprintf(out, "(:action pref-op0\n");
-    fprintf(out,":precondition (and (dummy-fact))\n");
-    fprintf(out,":effect (and (not (dummy-fact)) (dummy-goal)))\n\n");
-    */
-
     for (i = 0; i < n->numS; i++)
     {
       fprintf(out, "(:action pref-op%d\n", j);
