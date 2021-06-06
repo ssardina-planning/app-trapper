@@ -1359,6 +1359,7 @@ void print_flaws()
 void delete_temps()
 {
   remove("pfile.pddl");
+  remove("pfile-trap.pddl");
   remove("pfile.pddl3");
   remove("domain.pddl");
   remove("*.tabu"); // this won't work, cannot use wildcards; shell thing
