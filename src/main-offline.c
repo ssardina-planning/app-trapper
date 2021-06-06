@@ -1351,7 +1351,29 @@ void print_flaws()
     printf("NODE: %d STATE %d\n", FlawVect[ind].node, FlawVect[ind].state);
 }
 
-// Main procedure for the APP offline solvers
+
+/**
+ * @brief Remove aux temporary files left
+ * 
+ */
+void delete_temps()
+{
+  remove("pfile.pddl");
+  remove("pfile.pddl3");
+  remove("domain.pddl");
+  remove("*.tabu"); // this won't work, cannot use wildcards; shell thing
+  remove("emptyplan.tmp");
+  remove("endstate.txt");
+  remove("soln.tmp");
+}
+
+/**
+ * @brief Main file for APP solver
+ *
+ * @param argc number of CLI arguments
+ * @param argv list of CLI arguments
+ * @return int exit code
+ */
 int main(int argc, char *argv[])
 {
 
@@ -1367,6 +1389,11 @@ int main(int argc, char *argv[])
   {
     printf("Incorrect command line: <Obj-FILE> <InitialState-FILE> <predicate-file> <Act-FILE> <GRAPH-FILE> <seed>\n");
     exit(1);
+  }
+
+  // Create file representing emptyplan if it does not exists
+  if (file_exists("emptyplan.tmp") == FALSE) {
+      system("touch emptyplan.tmp"); 
   }
 
   // Set the seed from the 6-th CLI argument
@@ -1394,6 +1421,7 @@ int main(int argc, char *argv[])
       if (numFlaw == 0)
       {
         printf("SUCCESS\n\n"); // we are done, no flaws to fix!
+        delete_temps();
         return 0;
       }
 
